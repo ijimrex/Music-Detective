@@ -4,15 +4,30 @@
       <div class="rank-list-pic" style="width: 40%;height: 140px;background-color: coral;position: relative;float: left">pic</div>
       <div class="ranl-list-title" style="width: 50%;height:140px;background-color: brown;position: relative;float: left;margin-left: 3%">title</div>
     </div>
+    <div>
+      <ul id="repeat-object" class="demo">
+        <li v-for="value in object">
+          {{ value }}
+        </li>
+      </ul>
+    </div>
 
   </div>
 </template>
 <script >
 
+
   export default {
     name: 'ranklist',
     data () {
       return {
+          msg :"ds",
+          object: {
+          FirstName: 'John',
+          LastName: 'Doe',
+          Age: 30
+        }
+
 
       }
     }
