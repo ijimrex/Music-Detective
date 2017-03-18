@@ -6,8 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import Nav from './components/navigator.vue'
+import Ranklist from './components/RankList.vue'
 
 Vue.component('navigator', Nav)
+Vue.component('rank-list', Ranklist)
 
 Vue.use(ElementUI)
 
