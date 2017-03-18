@@ -5,9 +5,9 @@
       <div class="ranl-list-title" style="width: 50%;height:140px;background-color: brown;position: relative;float: left;margin-left: 3%">title</div>
     </div>
     <div>
-      <ul id="repeat-object" class="demo">
-        <li v-for="value in object">
-          {{ value }}
+      <ul id="rank-content" class="listcontent">
+        <li v-for="value in info">
+          <a href="#" style="font-size: large"> {{ value }}</a>
         </li>
       </ul>
     </div>
@@ -22,15 +22,19 @@
     data () {
       return {
           msg :"ds",
-          object: {
+          info: {
           FirstName: 'John',
           LastName: 'Doe',
           Age: 30
         }
-
-
       }
     }
   }
 
 </script>
+<style>
+  li a:link{text-decoration: none;}
+  li a:visited{text-decoration: none;}
+  li a:hover{text-decoration: underline;}
+  li a:active{text-decoration: none;}
+</style>
