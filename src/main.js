@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import Search from './components/Search'
-
-// Vue.component('home-search',Search);
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
