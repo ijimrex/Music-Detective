@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import Nav from './components/navigator.vue'
+
+Vue.component('navigator', Nav)
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
