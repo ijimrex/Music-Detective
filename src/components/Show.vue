@@ -1,8 +1,8 @@
 <template>
-  <div style="width:100%">
+  <div style="width:100%;position: relative">
     <navigator></navigator>
-    <div id="middle-bottom" style="width:100%;height: 400px;background-color: blueviolet;margin-top: 80px;padding-top: 100px;position: relative">
-      <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 80px;position: relative">
+    <div id="middle-bottom" style="width:100%;height: 400px;background-color: blueviolet;padding-top: 100px;position: relative;overflow: hidden">
+      <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 180px;position: relative">
         <el-radio-group v-model="radio" style="width:100%;margin-right: auto;margin-left: auto">
           <el-radio :label="3"style="width:20% ;position:relative;float: left;margin-left: 20%">歌名 </el-radio>
           <el-radio :label="6"style="width:20%;position:relative;float: left">歌手 </el-radio>
@@ -18,18 +18,19 @@
       <div id="rank-line"style="width: 50%;height: 50px;margin-left:auto;margin-right: auto;text-align: center;font-size: 2em">
         音乐榜
       </div>
-      <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 100%;position: relative;">
+      <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 750px%;position: relative;">
         <rank-list></rank-list>
         <rank-list></rank-list>
         <rank-list></rank-list>
         <rank-list></rank-list>
       </div>
 
-
     </div>
-    <div id="foot=bottom" style="width: 100%;height: 200px;background-color: crimson"></div>
+
+    <footbar></footbar>
 
   </div>
+
 </template>
 <script >
   export default {
