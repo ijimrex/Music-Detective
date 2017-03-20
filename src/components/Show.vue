@@ -13,8 +13,10 @@
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
-        <el-input id="pht" size="large" :placeholder="phtext" v-model="input" style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
-        <router-link to="/result"> <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center">搜索</el-button></router-link>
+        <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
+        <!--<router-link to="/result">-->
+          <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click="submitData">搜索</el-button>
+        <!--</router-link>-->
       </div>
     </div>
     <div id="rank-bottom" style="width: 100%;height: 720px; overflow: hidden;">
@@ -36,6 +38,7 @@
   </div>
 
 </template>
+<script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 <script >
   export default {
     name: 'show',
@@ -44,7 +47,12 @@
           msg:1,
          radio:1,
          phtext:"请输入歌名",
-         input:"",
+         inputkey:"",
+         infolsit:[{
+             amount : "",
+             songlist :""
+          }
+         ]
 
       }
     },
@@ -59,6 +67,12 @@
             break}
             default: this.phtext="ERROR";
           }
+        },
+        submitData(){
+          this.$http.get('/api/search/song/qq?key='+this.inputkey).then(res=>{
+             this.infolist.amount=res.data["total"];infolist.songlist=res
+          })
+
 
         }
 

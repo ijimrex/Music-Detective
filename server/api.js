@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express();
 const MusicApi = require('music-api');
+const net = require('music163-crawler');
+var toplist = require("music163-crawler/lib/crawler/toplist");
+// const net2 = require('neteaseMusicApi');
 
 router.get('/search/song/:vendor', (req, res) => {
   let key = req.query.key,
@@ -25,6 +28,7 @@ router.get('/search/album/:vendor', (req, res) => {
       page = req.query.page,
       raw = req.query.raw;
   let vendor = req.params.vendor;
+  console.log(key)
   MusicApi.searchAlbum(vendor, {
     key,
     limit,
@@ -99,5 +103,21 @@ router.get('/suggestion/xiami', (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.send(err));
 });
+
+router.get('/netTest', (req, res) => {
+  toplist.getTopList().then(response => {
+    res.json(response);
+  });
+});
+
+router.get('/songList/:id',(req,res)=>{
+  let id = req.query.id;
+  toplist.getSongList(id).then(response => {
+    console.log(response);
+  })
+  // net2.playlists(id, response => {
+  //   res.json(response);
+  // })
+})
 
 module.exports = router;

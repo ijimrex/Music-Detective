@@ -20,8 +20,11 @@
     "express": "^4.15.2",
     "mongoose": "^4.9.0",
     "music-api": "^0.2.7",
+    "music163-crawler": "^1.0.0",
+    "neteaseMusicApi": "^0.1.6",
     "nodemon": "^1.11.0",
     "vue": "^2.2.2",
+    "vue-resource": "^1.2.1",
     "vue-router": "^2.2.0"
   },
   "devDependencies": {

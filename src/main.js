@@ -8,12 +8,12 @@ import 'element-ui/lib/theme-default/index.css'
 import Nav from './components/navigator.vue'
 import Ranklist from './components/RankList.vue'
 import Footbar from './components/Footbar.vue'
-
+var vueResource = require('vue-resource');
+Vue.use(vueResource);
 Vue.component('navigator', Nav)
 Vue.component('rank-list', Ranklist)
 Vue.component('footbar', Footbar)
 Vue.use(ElementUI)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
