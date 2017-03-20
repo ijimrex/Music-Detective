@@ -17,15 +17,16 @@
         <router-link to="/result"> <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center">搜索</el-button></router-link>
       </div>
     </div>
-    <div id="rank-bottom" style="width: 100%;height: 800px;">
-      <div id="rank-line"style="width: 50%;height: 50px;margin-left:auto;margin-right: auto;text-align: center;font-size: 2em;font-family: 'Lucida Grande'；font-weight:bold;">
-        音乐榜
+    <div id="rank-bottom" style="width: 100%;height: 720px; overflow: hidden;">
+      <img style="width: 100%;height: 720px;position: absolute;z-index: -999" src="/static/pic/concert-bg.jpg">
+      <div id="rank-line"style="width: 100%;height: 100px;margin-left:auto;margin-right: auto;padding-top: 50px;text-align: center;font-size: 2em;font-family: 'Lucida Grande';font-weight:bold;color: beige;background-color: darkslateblue;opacity: 0.7">
+        排 行 榜
       </div>
       <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 750px%;position: relative;">
-        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard"></rank-list>
-        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"></rank-list>
-        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜"></rank-list>
-        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜"></rank-list>
+        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" style="background-color: aquamarine;opacity: 0.5" ></rank-list>
+        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"style="background-color: darksalmon;opacity: 0.5" ></rank-list>
+        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜"style="background-color: darkslateblue;opacity: 0.5"></rank-list>
+        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜"style="background-color: antiquewhite;opacity: 0.5"></rank-list>
       </div>
 
     </div>
