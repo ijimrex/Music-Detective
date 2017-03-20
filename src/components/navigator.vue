@@ -10,7 +10,7 @@
         </el-menu>
 
       </div>
-      <div id="register" style="background-color: aliceblue;float: right;width:5%">reg</div>
+      <div id="register" style="background-color: aliceblue;float: right;width:5%"></div>
     </div>
   </div>
 </template>
