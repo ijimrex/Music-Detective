@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://juejin.im/entry/5775f12b0a2b5839373557ea -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><link rel="dns-prefetch" href="https://gold-cdn.xitu.io/"><link rel="dns-prefetch" href="https://user-gold-cdn.xitu.io/"><link rel="apple-touch-icon" sizes="57x57" href="https://gold-cdn.xitu.io/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://gold-cdn.xitu.io/favicons/apple-touch-panfish-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://gold-cdn.xitu.io/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://gold-cdn.xitu.io/favicons/apple-touch-panfish-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://gold-cdn.xitu.io/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://gold-cdn.xitu.io/favicons/apple-touch-panfish-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://gold-cdn.xitu.io/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://gold-cdn.xitu.io/favicons/apple-touch-panfish-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://gold-cdn.xitu.io/favicons/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="https://gold-cdn.xitu.io/favicons/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://gold-cdn.xitu.io/favicons/android-chrome-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="https://gold-cdn.xitu.io/favicons/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="https://gold-cdn.xitu.io/favicons/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="https://gold-cdn.xitu.io/favicons/manifest.json"><link rel="mask-icon" href="https://gold-cdn.xitu.io/favicons/safari-pinned-tab.svg" color="#007fff"><link rel="shortcut icon" href="https://gold-cdn.xitu.io/favicons/favicon.ico"><meta name="msapplication-TileColor" content="#007fff"><meta name="msapplication-TileImage" content="//gold-cdn.xitu.io/favicons/mstile-144x144.png"><meta name="msapplication-config" content="//gold-cdn.xitu.io/favicons/browserconfig.xml"><meta name="theme-color" content="#007fff"><meta property="wb:webmaster" content="592d5aa78e3ec93b"><meta name="apple-itunes-app" content="app-id=987739104"><meta name="baidu-site-verification" content="Cfaq5f8MGB"><link rel="search" title="掘金" href="https://gold-cdn.xitu.io/conf/search.xml" type="application/opensearchdescription+xml"><meta data-vue-meta="true" vmid="keywords" name="keywords" content="Vue.js,ECMAScript 6,Webpack,Vuex,稀土掘金,掘金,移动开发,Android开发,iOS开发,前端开发,后端开发,产品设计,资源下载,React.js,vue.js,node.js,编程,程序员,开发者,设计师,产品经理,Hacker News,ECMAScript,开源,Github"><meta data-vue-meta="true" vmid="description" name="description" content="只看不赞，或者只收藏不赞的都是耍流氓，放学别走，我找我哥收拾你们。 项目地址：https://github.com/jrainlau/wechat-subscriptor   下载&amp;运行 git clone git@github.com:jrainlau/wechat-subsc | 掘金是中国质量最高的技术分享社区，邀请稀土用户作为 Co-Editor 来分享优质的技术干货，从前端到后端开发，从设计到产品，让每一个掘金用户都能挖掘到有价值的干货。"><meta data-vue-meta="true" name="robots" content="nofollow"><title data-vue-meta="true">一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金</title><link rel="stylesheet" href="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/ionicons.min.css"><link rel="stylesheet" href="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/iconfont.css"><link href="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/app.12ab58aa1ac93423211e6ec958fea812.css" rel="stylesheet"><script id="baidu-auto-push" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/push.js"></script><script async="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/analytics.js"></script><script async="" charset="UTF-8" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/meiqia.js"></script><script type="text/javascript" charset="utf-8" async="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/15.df0893898cf5c1fd5ca0.js"></script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style><style type="text/css" id="MEIQIA-ICON-STYLE">.MEIQIA-ICON { background-size: 40px auto !important; background-repeat: no-repeat !important; background-image: url("https://static.meiqia.com/dist/images/icon-mq.png?v=m27dr61ixkanstt9") !important; } @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) { .MEIQIA-ICON { background-image: url("https://static.meiqia.com/dist/images/icon-mq@2x.png?v=m27dr61ixkanstt9") !important; } } .MEIQIA-ICON-CHAT1 { background-position: 0 0 !important; } .MEIQIA-ICON-CHAT2 { background-position: 0 -20px !important; } .MEIQIA-ICON-CHAT3 { background-position: 0 -40px !important; } .MEIQIA-ICON-CHAT4 { background-position: 0 -60px !important; } .MEIQIA-ICON-CHAT5 { background-position: 0 -80px !important; } .MEIQIA-ICON-CHAT6 { background-position: 0 -100px !important; } .MEIQIA-ICON-CHAT7 { background-position: 0 -120px !important; } .MEIQIA-ICON-CHAT8 { background-position: 0 -140px !important; } .MEIQIA-ICON-CHAT9 { background-position: 0 -160px !important; } .MEIQIA-ICON-CHAT10 { background-position: 0 -180px !important; } .MEIQIA-ICON-CHAT11 { background-position: 0 -200px !important; } .MEIQIA-ICON-CHAT12 { background-position: 0 -220px !important; } .MEIQIA-ICON-TICKET1 { background-position: -20px 0 !important; } .MEIQIA-ICON-TICKET2 { background-position: -20px -20px !important; } .MEIQIA-ICON-TICKET3 { background-position: -20px -40px !important; } .MEIQIA-ICON-TICKET4 { background-position: -20px -60px !important; } .MEIQIA-ICON-TICKET5 { background-position: -20px -80px !important; } .MEIQIA-ICON-TICKET6 { background-position: -20px -100px !important; } .MEIQIA-ICON-TICKET7 { background-position: -20px -120px !important; } .MEIQIA-ICON-TICKET8 { background-position: -20px -140px !important; } .MEIQIA-ICON-TICKET9 { background-position: -20px -160px !important; } .MEIQIA-ICON-TICKET10 { background-position: -20px -180px !important; } .MEIQIA-ICON-TICKET11 { background-position: -20px -200px !important; } .MEIQIA-ICON-TICKET12 { background-position: -20px -220px !important; } </style><style type="text/css" id="MEIQIA-PANEL-STYLE">#MEIQIA-PANEL-HOLDER { position: fixed; bottom: 0;  right: 80px;  z-index: -1; width: 320px; height: 480px; padding: 0; margin: 0; overflow: hidden; visibility: hidden; background-color: transparent; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15); border: 1px solid #eee\0; *border: 1px solid #eee; } #MEIQIA-IFRAME { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; width: 100% !important; height: 100% !important; border: 0; padding: 0; margin: 0; float: none; background: none; } </style><style type="text/css" id="MEIQIA-INVITE-STYLE">#MEIQIA-INVITE, #MEIQIA-INVITE div, #MEIQIA-INVITE span { float: none; width: auto; height: auto; padding: 0; margin: 0; border: 0; background: none; } #MEIQIA-INVITE { position: fixed; z-index: 2147483647; display: none; width: 340px; height: 130px; margin-bottom: 64px; border: 1px solid #f7f7f7; border-radius: 4px; box-shadow: 0 0 14px 0 rgba(0, 0, 0, .16); text-align: left; cursor: pointer; color: #000; line-height: 1.428571429; background-color: #fff; } #MEIQIA-INVITE #MEIQIA-INVITE-ARROW1, #MEIQIA-INVITE #MEIQIA-INVITE-ARROW2 { position: absolute; font-size: 0; line-height: 0; } #MEIQIA-INVITE #MEIQIA-INVITE-ARROW1 { z-index: 2; } #MEIQIA-INVITE #MEIQIA-INVITE-ARROW2 { z-index: 1; }   #MEIQIA-INVITE { bottom: 0; left: 60px; } #MEIQIA-INVITE #MEIQIA-INVITE-ARROW1 { left: 12px; bottom: -8px; border-top: 8px solid #fff; border-right: 7px solid transparent; border-left: 7px solid transparent; } #MEIQIA-INVITE #MEIQIA-INVITE-ARROW2 { left: 11px; bottom: -10px; border-top: 9px solid #f7f7f7; border-right: 8px solid transparent; border-left: 8px solid transparent; }     #MEIQIA-INVITE #MEIQIA-INVITE-CLOSE { position: absolute; right: -20px; top: -20px; width: 40px; height: 40px; cursor: pointer;  background-position: 0 -260px;  } #MEIQIA-INVITE #MEIQIA-INVITE-CLOSE:hover {  background-position: 0 -300px;  } #MEIQIA-INVITE #MEIQIA-INVITE-INSIDE { width: 300px; height: 44px; margin: 46px 20px 0; text-align: left; font-size: 14px; line-height: 22px; overflow: hidden; color: #000; /*word-break: break-all;*/ } </style></head><body><div id="juejin-seo-meta"><h1>一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金</h1><p>只看不赞，或者只收藏不赞的都是耍流氓，放学别走，我找我哥收拾你们。 项目地址：https://github.com/jrainlau/wechat-subscriptor   下载&amp;运行 git clone git@github.com:jrainlau/wechat-subsc | 掘金是中国质量最高的技术分享社区，邀请稀土用户作为 Co-Editor 来分享优质的技术干货，从前端到后端开发，从设计到产品，让每一个掘金用户都能挖掘到有价值的干货。</p></div><div id="juejin" data-v-6ede48a3=""><div class="global-component-box" data-v-6ede48a3=""><div data-v-2840e9c3="" data-v-6ede48a3="" class="alert-list alert-list"></div><div data-v-6ddb54c6="" data-v-6ede48a3="" class="suspension-panel suspension-panel"><button data-v-6ddb54c6="" title="回到顶部" class="btn to-top-btn"><i data-v-6ddb54c6="" class="ion-android-arrow-dropup"></i></button><button data-v-6ddb54c6="" title="联系客服" class="btn meiqia-btn"><i data-v-6ddb54c6="" class="ion-chatbubble-working"></i></button></div><!----><!----></div><!----><div data-v-3f216172="" data-v-41d33d72="" data-v-6ede48a3="" class="view-container"><div data-v-3f216172="" class="main-header-box"><header data-v-5ce25e66="" data-v-3f216172="" class="main-header main-header"><div data-v-5ce25e66="" class="container"><a data-v-5ce25e66="" href="https://juejin.im/" class="logo"><img data-v-5ce25e66="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/logo.a7995ad.svg" class="logo-img"></a><nav data-v-5ce25e66="" role="navigation" class="main-nav"><ul data-v-5ce25e66="" class="nav-list"><div data-v-5ce25e66="" class="main-nav-list"><div data-v-5ce25e66="" class="phone-show-menu"><span data-v-5ce25e66="">首页</span><div data-v-5ce25e66="" class="icon ion-arrow-down-b"></div></div><div data-v-5ce25e66="" class="phone-hide"><li data-v-5ce25e66="" class="nav-item link-item"><a data-v-5ce25e66="" href="https://juejin.im/timeline/subscribe">首页</a></li><li data-v-5ce25e66="" class="nav-item link-item"><a data-v-5ce25e66="" href="https://juejin.im/zhuanlan/all">专栏</a></li><li data-v-5ce25e66="" class="nav-item link-item"><a data-v-5ce25e66="" href="https://juejin.im/collections/recommended">收藏集</a></li><li data-v-5ce25e66="" class="nav-item link-item"><a data-v-5ce25e66="" href="https://juejin.im/explore/all">发现</a></li></div></div><li data-v-5ce25e66="" class="nav-item search"><form data-v-5ce25e66="" role="search" class="search-form"><input data-v-5ce25e66="" maxlength="32" placeholder="搜索掘金"><img data-v-5ce25e66="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/juejin-search-icon.26cafaa.svg" alt="搜索" class="search-icon"></form></li><!----><!----><!----><li data-v-5ce25e66="" class="nav-item submit"><img data-v-5ce25e66="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/submit-icon.53f4253.svg" class="icon"><span data-v-5ce25e66="">投稿</span><!----></li><li data-v-5ce25e66="" class="nav-item auth"><span data-v-5ce25e66="" class="login">登录</span><span data-v-5ce25e66="" class="register">注册</span></li></ul></nav></div></header></div><main data-v-3f216172="" class="container main-container"><div data-v-41d33d72="" data-v-3f216172="" class="view entry-public-view shadow"><div data-v-009ea7bb="" data-v-41d33d72="" class="thumb thumb" data-v-3f216172="" style="background-image: url(&quot;https://dn-mhke0kuv.qbox.me/037f93104fdd11a2f0ea.jpg?imageView2/1/w/800/h/600/q/85/format/jpg/interlace/1&quot;); background-size: cover;"><img data-v-009ea7bb="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/037f93104fdd11a2f0ea.jpg" class="hidden"></div><h1 data-v-41d33d72="" data-v-3f216172="">一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app</h1><div data-v-41d33d72="" data-v-3f216172="" class="entry-public-info"><div data-v-41d33d72="" data-v-3f216172="" class="text-muted info-item">阅读 2976</div><div data-v-41d33d72="" data-v-3f216172="" class="text-muted info-item">收藏 104</div><div data-v-41d33d72="" data-v-3f216172="" class="text-muted info-item">2016-06-30</div></div><div data-v-41d33d72="" data-v-3f216172="" class="header"><div data-v-41d33d72="" data-v-3f216172="" class="originalUrl">原文链接：<a data-v-41d33d72="" data-v-3f216172="" href="http://sfau.lt/b5yGuJ" rel="nofollow noopener noreferrer" target="_blank">http://sfau.lt/b5yGuJ</a></div><div data-v-41d33d72="" data-v-3f216172="" class="abstract">我在微信上关注了不少的公众号，经常浏览里面的内容。但是往往在我阅读文章的时候，总是被各种微信消息打断，不得不切出去，回复消息，然后一路点回公众号，重新打开文章，周而复始，不胜其烦。后来想起，微信跟搜狗有合作，可以通过搜狗直接搜索公众号，那么为什么不利用这个资源做一个专门收藏公众号的应用呢？这个应用可以方便地搜索公众号，然后把它收藏起来，想看的时候直接打开就能看。
+—— 由<a data-v-41d33d72="" href="https://juejin.im/user/55fa7cd460b2e36621f07dde" class="" data-v-3f216172="">Jrain</a>分享</div></div><div data-v-41d33d72="" data-v-3f216172="" class="entry-content"><div><div>
+                    
+<p>只看不赞，或者只收藏不赞的都是耍流氓，放学别走，我找我哥收拾你们。</p>
+<blockquote><p>项目地址：<a href="https://github.com/jrainlau/wechat-subscriptor">https://github.com/jrainlau/wechat-subscriptor</a></p></blockquote>
+<p><img src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/9e2f19077969c92aa3ffcd91f78d3325.gif" style=""></p>
+<p><img src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/c896dabaeccaf06dfba85315021a37ae.gif" style=""></p>
+<h2>下载&amp;运行</h2>
+<pre><code class="hljs sql">git clone git@github.com:jrainlau/wechat-subscriptor.git
+cd wechat-subscriptor &amp;&amp; npm <span class="hljs-keyword">install</span>
+
+npm run dev   // run <span class="hljs-keyword">in</span> dev <span class="hljs-keyword">mode</span>
+cd backend-<span class="hljs-keyword">server</span> &amp;&amp; node crawler.js   // turn <span class="hljs-keyword">on</span> the crawler <span class="hljs-keyword">server</span>
+
+<span class="hljs-keyword">open</span> <span class="hljs-string">`localhost:8080`</span> <span class="hljs-keyword">in</span> your broswer <span class="hljs-keyword">and</span> enjoy it.</code></pre>
+<h2>项目介绍</h2>
+<p>我在微信上关注了不少的公众号，经常浏览里面的内容。但是往往在我阅读文章的时候，总是被各种微信消息打断，不得不切出去，回复消息，然后一路点回公众号，重新打开文章，周而复始，不胜其烦。后来想起，微信跟搜狗有合作，可以通过搜狗直接搜索公众号，那么为什么不利用这个资源做一个专门收藏公众号的应用呢？这个应用可以方便地搜索公众号，然后把它收藏起来，想看的时候直接打开就能看。好吧，其实也不难，那就开始从架构开始构思。</p>
+<h2>整体架构</h2>
+<p>国际惯例，先看架构图：</p>
+<p><img src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/d5d69d1d876932d57c69ad4b4c27e760" style=""></p>
+<p>然后是技术选型：</p>
+<ol>
+<li><p>利用搜狗的API作为查询公众号的接口</p></li>
+<li><p>由于存在跨域问题，遂通过<code>node</code>爬虫使用接口</p></li>
+<li><p>使用<code>vue</code>进行开发，<code>vuex</code>作状态管理</p></li>
+<li><p>使用<code>mui</code>作为UI框架，方便日后打包成手机app</p></li>
+<li><p>使用<code>vue-cli</code>初始化项目并通过<code>webpack</code>进行构建</p></li>
+</ol>
+<p>首先分析红圈中的<code>vuex</code>部分。它是整个APP的核心，也是所有数据的处理中心。</p>
+<p>客户端所有组件都是在<code>action</code>中完成对流入数据的处理（如异步请求等），然后通过<code>action</code>触发<code>mutation</code>修改<code>state</code>，后由<code>state</code>经过<code>getter</code>分发给各组件，满足“单项数据流”的特点，同时也符合官方推荐的做法：</p>
+<p><img src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/2641d3296f3917f7897f50dd45efc7d7" style=""></p>
+<p>理解完最重要的<code>vuex</code>以后，其他部分也就顺利成章了。箭头表示数据的流动，<code>LocalStorage</code>负责储存收藏夹的内容，方便下一次打开应用的时候内容不会丢失，node服务器负责根据关键字爬取搜狗API提供的数据。</p>
+<p>是不是很简单？下面让我们一起来开始coding吧！</p>
+<h2>初始化项目</h2>
+<p><code>npm install vue-cli -g</code>安装最新版的<code>vue-cli</code>，然后<code>vue init webpack wechat-subscriptor</code>，按提示经过一步步设置并安装完依赖包以后，进入项目的目录并稍作改动，最终目录结构如下：</p>
+<p><img src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/24bf24c4bd1f76ec5295d5425e46b5c5" style=""></p>
+<p>具体的内容请直接浏览<a href="https://github.com/jrainlau/wechat-subscriptor">项目</a></p>
+<h2>服务器&amp;爬虫</h2>
+<p>进入<code>/backend-server</code>文件夹并新建名为<code>crawler-server.js</code>的文件，代码如下：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/*** crawler-server.js ***/</span>
+<span class="hljs-meta">
+'use strict'</span>
+<span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>)
+<span class="hljs-keyword">const</span> url = <span class="hljs-built_in">require</span>(<span class="hljs-string">'url'</span>)
+<span class="hljs-keyword">const</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'util'</span>)
+<span class="hljs-keyword">const</span> superagent = <span class="hljs-built_in">require</span>(<span class="hljs-string">'superagent'</span>)
+<span class="hljs-keyword">const</span> cheerio = <span class="hljs-built_in">require</span>(<span class="hljs-string">'cheerio'</span>)
+
+<span class="hljs-keyword">const</span> onRequest = (req, res) =&gt; {
+    <span class="hljs-comment">// CORS options</span>
+    res.writeHead(<span class="hljs-number">200</span>, {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/plain'</span>, <span class="hljs-string">'Access-Control-Allow-Origin'</span>: <span class="hljs-string">'*'</span>})
+    <span class="hljs-keyword">let</span> keyWord = <span class="hljs-built_in">encodeURI</span>(url.parse(req.url, <span class="hljs-literal">true</span>).query.query)
+    <span class="hljs-comment">// recieve keyword from the client side and use it to make requests</span>
+    <span class="hljs-keyword">if</span> (keyWord) {
+        <span class="hljs-keyword">let</span> resultArr = []
+        superagent.get(<span class="hljs-string">'http://weixin.sogou.com/weixin?type=1&amp;query='</span> + keyWord + <span class="hljs-string">'&amp;ie=utf8&amp;_sug_=n&amp;_sug_type_='</span>).end((err, response) =&gt; {
+            <span class="hljs-keyword">if</span> (err) <span class="hljs-built_in">console</span>.log(err)
+            <span class="hljs-keyword">let</span> $ = cheerio.load(response.text)
+
+            $(<span class="hljs-string">'.mt7 .wx-rb'</span>).each((index, item) =&gt; {
+                <span class="hljs-comment">// define an object and update it</span>
+                <span class="hljs-comment">// then push to the result array</span>
+                <span class="hljs-keyword">let</span> resultObj = {
+                    title: <span class="hljs-string">''</span>,
+                    wxNum: <span class="hljs-string">''</span>,
+                    link: <span class="hljs-string">''</span>,
+                    pic: <span class="hljs-string">''</span>,
+                }
+
+                resultObj.title = $(item).find(<span class="hljs-string">'h3'</span>).text()
+                resultObj.wxNum = $(item).find(<span class="hljs-string">'label'</span>).text()
+                resultObj.link = $(item).attr(<span class="hljs-string">'href'</span>)
+                resultObj.pic = $(item).find(<span class="hljs-string">'img'</span>).attr(<span class="hljs-string">'src'</span>)
+                resultArr.push(resultObj)
+            })
+            
+            res.write(<span class="hljs-built_in">JSON</span>.stringify(resultArr))
+            res.end()
+        })
+    }
+}
+
+http.createServer(onRequest).listen(process.env.PORT || <span class="hljs-number">8090</span>)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Server Start!'</span>)</code></pre>
+<p>一个简单的爬虫，通过客户端提供的关键词向搜狗发送请求，后利用<code>cheerio</code>分析获取关键的信息。这里贴上搜狗公众号搜索的地址，你可以亲自试一试：<a href="http://weixin.sogou.com/">http://weixin.sogou.com/</a></p>
+<p>当开启服务器以后，只要带上参数请求<code>localhost:8090</code>即可获取内容。</p>
+<h2>使用<code>Vuex</code>作状态管理</h2>
+<p>先贴上<code>vuex</code>官方文档：<a href="http://vuex.vuejs.org/en/index.html">http://vuex.vuejs.org/en/index.html</a>，相信我，不要看中文版的，不然你会踩坑，英文版足够了。</p>
+<p>从前文的架构图可以知道，所有的数据流通都是通过<code>vuex</code>进行，通过上面的文档了解了有关<code>vuex</code>的用法以后，我们进入<code>/vuex</code>文件夹来构建核心的<code>store.js</code>代码：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/*** store.js ***/</span>
+
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span>
+<span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">'vuex'</span>
+
+Vue.use(Vuex)
+
+<span class="hljs-keyword">const</span> state = {
+  collectItems: [],
+  searchResult: {}
+}
+
+localStorage.getItem(<span class="hljs-string">"collectItems"</span>)?
+ state.collectItems = localStorage.getItem(<span class="hljs-string">"collectItems"</span>).split(<span class="hljs-string">','</span>):
+  <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">const</span> mutations = {
+  SET_RESULT (state, result) {
+    state.searchResult = result
+  },
+  COLLECT_IT (state, name) {
+    state.collectItems.push(name)
+    localStorage.setItem(<span class="hljs-string">"collectItems"</span>, state.collectItems)
+  },
+  DELETE_COLLECTION (state, name) {
+    state.collectItems.splice(state.collectItems.indexOf(name), <span class="hljs-number">1</span>)
+    localStorage.setItem(<span class="hljs-string">"collectItems"</span>, state.collectItems)
+  }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Vuex.Store({
+  state,
+  mutations
+})</code></pre>
+<p>下面我们将对当中的代码重点分析。</p>
+<p>首先我们定义了一个<code>state</code>对象，里面的两个属性对应着收藏夹内容，搜索结果。换句话说，整个APP的数据就是存放在<code>state</code>对象里，随取随用。</p>
+<p>接着，我们再定义一个<code>mutations</code>对象。我们可以把<code>mutations</code>理解为“用于改变<code>state</code>状态的一系列方法”。在<code>vuex</code>的概念里，<code>state</code>仅能通过<code>mutation</code>修改，这样的好处是能够更直观清晰地集中管理应用的状态，而不是把数据扔得到处都是。</p>
+<p>通过代码不难看出，三个<code>mutation</code>的作用分别是：</p>
+<ul>
+<li><p><code>SET_RESULT</code>：把搜索结果存入<code>state</code></p></li>
+<li><p><code>COLLECT_IT</code>：添加到收藏夹操作（包括<code>localstorage</code>）</p></li>
+<li><p><code>DELETE_IT</code>：从收藏夹移除操作（包括<code>localstorage</code>）</p></li>
+</ul>
+<h2>组件数据处理</h2>
+<p>我们的APP一共有两个组件，<code>SearchBar.vue</code>和<code>SearchResult.vue</code>，分别对应着搜索部分组件和结果部分组件。其中搜索部分组件包含着收藏夹部分，所以也可以理解为有三个部分。</p>
+<h4>搜索部分组件<code>SearchBar.vue</code>
+</h4>
+<pre><code class="hljs dart"><span class="hljs-comment"><span class="markdown">/<span class="hljs-strong">*** SearchBar.vue **</span>*/</span></span>
+
+
+vuex: {
+  getters: {
+    collectItem(state) {
+      <span class="hljs-keyword">return</span> state.collectItems
+    }
+  },
+  actions: {
+    deleteCollection: ({ dispatch }, name) =&gt; {
+      dispatch(<span class="hljs-string">'DELETE_COLLECTION'</span>, name)
+    },
+    searchFun: ({ dispatch }, keyword) =&gt; {
+      $.<span class="hljs-keyword">get</span>(<span class="hljs-string">'http://localhost:8090'</span>, { query: keyword }, (data) =&gt; {
+        dispatch(<span class="hljs-string">'SET_RESULT'</span>, JSON.parse(data))
+      })
+    }
+  }
+}</code></pre>
+<p>代码有点长，这里仅重点介绍<code>vuex</code>部分，完整代码可以参考<a href="https://github.com/jrainlau/wechat-subscriptor">项目</a>。</p>
+<ul>
+<li><p><code>getters</code>获取<code>store</code>当中的数据作予组件使用</p></li>
+<li><p><code>actions</code>的两个方法负责把数据分发到<code>store</code>中供<code>mutation</code>使用</p></li>
+</ul>
+<p>看官方的例子，在组件中向<code>action</code>传参似乎很复杂，其实完全可以通过<code>methods</code>来处理参数，在触发<code>actions</code>的同时把参数传进去。</p>
+<h4>结果部分组件<code>SearchResult.vue</code>
+</h4>
+<pre><code class="hljs kotlin"><span class="hljs-comment">/*** SearchResult.vue ***/</span>
+
+vuex: {
+  getters: {
+    wordValue(state) {
+      <span class="hljs-keyword">return</span> state.keyword
+    },
+    collectItems(state) {
+      <span class="hljs-keyword">return</span> state.collectItems
+    },
+    searchResult(state) {
+      <span class="hljs-keyword">return</span> state.searchResult
+    }
+  },
+  actions: {
+    collectIt: ({ dispatch }, name, collectArr) =&gt; {
+      <span class="hljs-keyword">for</span>(let item of collectArr) {
+        <span class="hljs-keyword">if</span>(item == name) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+      }
+      dispatch(<span class="hljs-string">'COLLECT_IT'</span>, name)
+    }
+  }
+}</code></pre>
+<p>结果部分主要在于展示，需要触发<code>action</code>的地方仅仅是添加到收藏夹这一操作。需要注意的地方是应当避免重复添加，所以使用了<code>for...of</code>循环，当数组中已有当前元素的时候就不再添加了。</p>
+<h2>尾声</h2>
+<p>关键的逻辑部分代码分析完毕，这个APP也就这么一回事儿，UI部分就不细说了，看看项目源码或者你自己DIY就可以。至于打包成APP，首先你要下载HBuilder，然后通过它直接打包就可以了，配套使用<code>mui</code>能够体验更好的效果，不知道为什么那么多人黑它。</p>
+<p>搜狗提供的API很强大，但是提醒一下，千万不要操作太过频繁，不然你的IP会被它封掉，我的已经被封了……</p>
+<p><code>Weex</code>已经出来了，通过它可以构建Native应用，想想也是激动啊，待心血来潮就把本文的项目做成<code>Weex</code>版本的玩玩……</p>
+<p>最后的最后，感谢你的阅读，如果觉得我的文章不错，欢迎关注我的专栏，下次见！</p>
+
+                </div>
+                                                
+                </div></div><div data-v-41d33d72="" data-v-3f216172="" class="footer"><ul data-v-41d33d72="" data-v-3f216172="" class="tag-list"><li data-v-41d33d72="" data-v-3f216172="" class="item"><a data-v-41d33d72="" href="https://juejin.im/tag/Vue.js" class="" data-v-3f216172="">Vue.js</a></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><a data-v-41d33d72="" href="https://juejin.im/tag/ECMAScript%206" class="" data-v-3f216172="">ECMAScript 6</a></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><a data-v-41d33d72="" href="https://juejin.im/tag/Webpack" class="" data-v-3f216172="">Webpack</a></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><a data-v-41d33d72="" href="https://juejin.im/tag/Vuex" class="" data-v-3f216172="">Vuex</a></li></ul><div data-v-41d33d72="" data-v-3f216172="" class="related-entry-list-box"><div data-v-41d33d72="" data-v-3f216172="" class="title">相关热门文章</div><ul data-v-41d33d72="" data-v-3f216172="" class="related-entry-list"><li data-v-41d33d72="" data-v-3f216172="" class="item"><div data-v-9db545a6="" data-v-41d33d72="" class="related-entry related-entry" data-v-3f216172=""><a data-v-9db545a6="" class="entry-link" href="https://juejin.im/post/58cf180b0ce4630057d6727c" target="_blank"><div data-v-009ea7bb="" data-v-9db545a6="" class="thumb thumb" style="background-image: url(&quot;https://dn-mhke0kuv.qbox.me/cf7d3b648376e34a2d9a.jpg&quot;); background-size: cover;"><img data-v-009ea7bb="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/cf7d3b648376e34a2d9a.jpg" class="hidden"></div><div data-v-9db545a6="" class="info"><div data-v-9db545a6="" class="row title-row"><a data-v-9db545a6="" class="title" href="https://juejin.im/post/58cf180b0ce4630057d6727c" target="_blank">80% 应聘者都不及格的 JS 面试题</a></div><div data-v-9db545a6="" class="row meta-row"><ul data-v-9db545a6="" class="meta-list"><li data-v-9db545a6="" class="meta user"><div data-v-9db545a6="" class="username">王仕军</div></li><li data-v-9db545a6="" class="meta like"><div data-v-9db545a6="" class="icon icon-likes iconfont icon-xlcollection"></div><div data-v-9db545a6="" class="count">632</div></li><li data-v-9db545a6="" class="meta comment"><div data-v-9db545a6="" class="icon icon-comments iconfont icon-xlchatbox"></div><div data-v-9db545a6="" class="count">59</div></li></ul></div></div></a></div></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><div data-v-9db545a6="" data-v-41d33d72="" class="related-entry related-entry" data-v-3f216172=""><a data-v-9db545a6="" class="entry-link" href="https://juejin.im/post/58d0f1bbb123db3f6b4d6b31" target="_blank"><div data-v-009ea7bb="" data-v-9db545a6="" class="thumb thumb" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAACgBAMAAACPjaivAAAAElBMVEXi6O3////R3ujj6e/c5u3X4usQB3wbAAABCElEQVR42u3Vy03FQBBE0U6BDBCfPSEQAvlHw44FmvaoEbJLz+dGcORWeUqSJEmSJEmS/trTphoGCAi4CRAQcNMtgfUrQMDjbjgSQMBJgIDTjgyAj3JiQMBJtwTG/2bigfEnBgScdEtg/G8mHhh/YkDASYCAgJsAAQE3AQICbgIEBNwECPgvwJef3mrY2cCvGnY28KOGnQx8rcs7Btb1LYE5E2mAORNpgEEXXgNzJtIAgz7gGpgzkQaYM5EGmPKKtMCciRwBPyuiFvheGS2BQRdeA3Mm0gOfK6QlMGciDTBnIg0w6MJrYM5EGmDQB1wDcybSAHMm0gBTXpEWmDMRSZIkSZIk6cK+AUdTxLnCoi0gAAAAAElFTkSuQmCC&quot;); background-size: cover;"><img data-v-009ea7bb="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAACgBAMAAACPjaivAAAAElBMVEXi6O3////R3ujj6e/c5u3X4usQB3wbAAABCElEQVR42u3Vy03FQBBE0U6BDBCfPSEQAvlHw44FmvaoEbJLz+dGcORWeUqSJEmSJEmS/trTphoGCAi4CRAQcNMtgfUrQMDjbjgSQMBJgIDTjgyAj3JiQMBJtwTG/2bigfEnBgScdEtg/G8mHhh/YkDASYCAgJsAAQE3AQICbgIEBNwECPgvwJef3mrY2cCvGnY28KOGnQx8rcs7Btb1LYE5E2mAORNpgEEXXgNzJtIAgz7gGpgzkQaYM5EGmPKKtMCciRwBPyuiFvheGS2BQRdeA3Mm0gOfK6QlMGciDTBnIg0w6MJrYM5EGmDQB1wDcybSAHMm0gBTXpEWmDMRSZIkSZIk6cK+AUdTxLnCoi0gAAAAAElFTkSuQmCC" class="hidden"></div><div data-v-9db545a6="" class="info"><div data-v-9db545a6="" class="row title-row"><a data-v-9db545a6="" class="title" href="https://juejin.im/post/58d0f1bbb123db3f6b4d6b31" target="_blank">vue-cli中的webpack配置</a></div><div data-v-9db545a6="" class="row meta-row"><ul data-v-9db545a6="" class="meta-list"><li data-v-9db545a6="" class="meta user"><div data-v-9db545a6="" class="username">lybenson</div></li><li data-v-9db545a6="" class="meta like"><div data-v-9db545a6="" class="icon icon-likes iconfont icon-xlcollection"></div><div data-v-9db545a6="" class="count">58</div></li><li data-v-9db545a6="" class="meta comment"><div data-v-9db545a6="" class="icon icon-comments iconfont icon-xlchatbox"></div><div data-v-9db545a6="" class="count">3</div></li></ul></div></div></a></div></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><div data-v-9db545a6="" data-v-41d33d72="" class="related-entry related-entry" data-v-3f216172=""><a data-v-9db545a6="" class="entry-link" href="https://juejin.im/entry/58d133d761ff4b00603e2ed3/detail" target="_blank"><div data-v-009ea7bb="" data-v-9db545a6="" class="thumb thumb" style="background-image: url(&quot;https://dn-mhke0kuv.qbox.me/e9047a12414ab38f3502.png&quot;); background-size: cover;"><img data-v-009ea7bb="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/e9047a12414ab38f3502.png" class="hidden"></div><div data-v-9db545a6="" class="info"><div data-v-9db545a6="" class="row title-row"><a data-v-9db545a6="" class="title" href="https://juejin.im/entry/58d133d761ff4b00603e2ed3/detail" target="_blank">JSPangAdim Vue2.0 后台开源系统</a></div><div data-v-9db545a6="" class="row meta-row"><ul data-v-9db545a6="" class="meta-list"><li data-v-9db545a6="" class="meta user"><div data-v-9db545a6="" class="username">胜洪宇</div></li><li data-v-9db545a6="" class="meta like"><div data-v-9db545a6="" class="icon icon-likes iconfont icon-xlcollection"></div><div data-v-9db545a6="" class="count">39</div></li><!----></ul></div></div></a></div></li><li data-v-41d33d72="" data-v-3f216172="" class="item"><div data-v-9db545a6="" data-v-41d33d72="" class="related-entry related-entry" data-v-3f216172=""><a data-v-9db545a6="" class="entry-link" href="https://juejin.im/post/58d1046cb123db3f6b4df9f7" target="_blank"><div data-v-009ea7bb="" data-v-9db545a6="" class="thumb thumb" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAACgBAMAAACPjaivAAAAElBMVEXi6O3////R3ujj6e/c5u3X4usQB3wbAAABCElEQVR42u3Vy03FQBBE0U6BDBCfPSEQAvlHw44FmvaoEbJLz+dGcORWeUqSJEmSJEmS/trTphoGCAi4CRAQcNMtgfUrQMDjbjgSQMBJgIDTjgyAj3JiQMBJtwTG/2bigfEnBgScdEtg/G8mHhh/YkDASYCAgJsAAQE3AQICbgIEBNwECPgvwJef3mrY2cCvGnY28KOGnQx8rcs7Btb1LYE5E2mAORNpgEEXXgNzJtIAgz7gGpgzkQaYM5EGmPKKtMCciRwBPyuiFvheGS2BQRdeA3Mm0gOfK6QlMGciDTBnIg0w6MJrYM5EGmDQB1wDcybSAHMm0gBTXpEWmDMRSZIkSZIk6cK+AUdTxLnCoi0gAAAAAElFTkSuQmCC&quot;); background-size: cover;"><img data-v-009ea7bb="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAACgBAMAAACPjaivAAAAElBMVEXi6O3////R3ujj6e/c5u3X4usQB3wbAAABCElEQVR42u3Vy03FQBBE0U6BDBCfPSEQAvlHw44FmvaoEbJLz+dGcORWeUqSJEmSJEmS/trTphoGCAi4CRAQcNMtgfUrQMDjbjgSQMBJgIDTjgyAj3JiQMBJtwTG/2bigfEnBgScdEtg/G8mHhh/YkDASYCAgJsAAQE3AQICbgIEBNwECPgvwJef3mrY2cCvGnY28KOGnQx8rcs7Btb1LYE5E2mAORNpgEEXXgNzJtIAgz7gGpgzkQaYM5EGmPKKtMCciRwBPyuiFvheGS2BQRdeA3Mm0gOfK6QlMGciDTBnIg0w6MJrYM5EGmDQB1wDcybSAHMm0gBTXpEWmDMRSZIkSZIk6cK+AUdTxLnCoi0gAAAAAElFTkSuQmCC" class="hidden"></div><div data-v-9db545a6="" class="info"><div data-v-9db545a6="" class="row title-row"><a data-v-9db545a6="" class="title" href="https://juejin.im/post/58d1046cb123db3f6b4df9f7" target="_blank">Vue1.x 迁移 Vue2.x 实战</a></div><div data-v-9db545a6="" class="row meta-row"><ul data-v-9db545a6="" class="meta-list"><li data-v-9db545a6="" class="meta user"><div data-v-9db545a6="" class="username">Tsy远</div></li><li data-v-9db545a6="" class="meta like"><div data-v-9db545a6="" class="icon icon-likes iconfont icon-xlcollection"></div><div data-v-9db545a6="" class="count">22</div></li><li data-v-9db545a6="" class="meta comment"><div data-v-9db545a6="" class="icon icon-comments iconfont icon-xlchatbox"></div><div data-v-9db545a6="" class="count">1</div></li></ul></div></div></a></div></li></ul></div></div></div><div data-v-6d38bc9a="" data-v-41d33d72="" class="entry-view-footer" data-v-3f216172=""><div data-v-6d38bc9a="" class="footer-container"><a data-v-6d38bc9a="" href="https://juejin.im/about" class="left"><img data-v-6d38bc9a="" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/logo-bold.svg"><span data-v-6d38bc9a="">高质量的技术社区</span></a><a data-v-6d38bc9a="" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daimajia.gold" class="button">立即下载<div data-v-6d38bc9a="" class="entry-pop-up"><a data-v-6d38bc9a="" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.daimajia.gold" class="pop-up-content">前端高手都在看</a></div></a></div></div></main></div></div>
+      
+      <script type="text/javascript" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/manifest.7ca6150615612f6aaf79.js"></script><script type="text/javascript" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/vendor.2065fadd2281f9ca468e.js"></script><script type="text/javascript" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/app.1327cecde44d09461248.js"></script>
+    <div id="MEIQIA-PANEL-HOLDER"><iframe id="MEIQIA-IFRAME" src="./一步一步教你用 Vue.js + Vuex 制作专门收藏微信公众号的 app - 掘金_files/desktop-fiesta.html" frameborder="0" scrolling="no" allowtransparency="true"></iframe> </div><div id="MEIQIA-INVITE"><span id="MEIQIA-INVITE-CLOSE" class="MEIQIA-ICON"></span> <div id="MEIQIA-INVITE-INSIDE">您好，当前有专业客服人员在线，让我们来帮助您吧。</div> <span id="MEIQIA-INVITE-ARROW1"></span> <span id="MEIQIA-INVITE-ARROW2"></span></div></body></html>

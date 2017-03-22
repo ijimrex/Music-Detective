@@ -2,9 +2,9 @@
   <div style="width:100%;position: relative">
     <navigator></navigator>
     <div id="middle-bottom" style="width:100%;height: 800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
-      <video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">
-        <source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">
-      </video>
+      <!--<video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">-->
+        <!--<source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">-->
+      <!--</video>-->
       <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 230px;position: relative;">
         <el-radio-group v-model="radio" style="width:100%;margin-right: auto;margin-left: auto" @change="changeph">
           <el-radio :label="1"style="width:20% ;position:relative;float: left;margin-left: 20%;font-family: 'Lucida Grande';color: beige;">歌名 </el-radio>
@@ -23,6 +23,7 @@
       <img style="width: 100%;height: 720px;position: absolute;z-index: -999" src="/static/pic/concert-bg.jpg">
       <div id="rank-line"style="width: 100%;height: 100px;margin-left:auto;margin-right: auto;padding-top: 50px;text-align: center;font-size: 2em;font-family: 'Lucida Grande';font-weight:bold;color: beige;background-color: darkslateblue;opacity: 0.7">
         排 行 榜
+        <!--{{ infolist.songlist["album"]["cover"] }}-->
       </div>
       <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 750px%;position: relative;">
         <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" style="background-color: aquamarine;opacity: 0.5" ></rank-list>
@@ -34,13 +35,24 @@
     </div>
 
     <footbar></footbar>
+    <!--<p v-for="id of infolist.songlist">-->
+<!--{{t}}-->
+      <!--&lt;!&ndash;{{id["album"]["name"]}}&ndash;&gt;-->
+
+    <!--</p>-->
+
 
   </div>
 
 </template>
 <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 <script >
+
+//  var data={}
   export default {
+    created() {
+      document.title = this.$route.name
+    },
     name: 'show',
     data () {
       return {
@@ -48,11 +60,24 @@
          radio:1,
          phtext:"请输入歌名",
          inputkey:"",
-         infolsit:[{
+         infolist:{
              amount : "",
-             songlist :""
+             songlist: [{
+                 songid:"",
+                 songname:"",
+                 needpay: "",
+                 artists:[{
+                     name: "",
+                     id:""
+                 }],
+             album:{
+                     name:""
+             }
+
+
+      }]
           }
-         ]
+
 
       }
     },
@@ -68,13 +93,18 @@
             default: this.phtext="ERROR";
           }
         },
+
         submitData(){
-          this.$http.get('/api/search/song/qq?key='+this.inputkey).then(res=>{
-             this.infolist.amount=res.data["total"];infolist.songlist=res
+          this.$http.get('/api/search/song/qq?key='+this.inputkey+"&limit=100").then(res=>{
+             this.infolist.amount=res.data["total"];
+             this.infolist.songlist=res.data["songList"];
+             console.log(this.infolist.songlist)
+
           })
-
-
         }
+//      parseSongInfo(infolist){
+//
+//      }
 
     }
 

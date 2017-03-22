@@ -31,17 +31,20 @@
       </el-table>
     </div>
 
-    <img src="../../static/pic/B1.png"><img src="Billboard1.png" height="300" width="400"/>
 
     <footbar></footbar>
+    {{count}}
+    <!--{{$store.state.count}}-->
   </div>
 
 </template>
 <script>
+  import {mapState} from 'vuex';
   export default {
     name: 'results',
     data () {
       return {
+//        cdata: store.state.count,
         tableData: [{
           name: '高尚',
           artist: '薛之谦',
@@ -57,7 +60,16 @@
         },
         ]
       }
-    }
+    },computed: mapState({
+      count: function(state) {
+        return state.count;
+      }})
+//    vuex: {
+//      getters: {
+//        count: state => state.count
+//      }
+//  }
+
   }
 </script>
 
