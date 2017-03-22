@@ -60,21 +60,7 @@
          radio:1,
          phtext:"请输入歌名",
          inputkey:"",
-         infolist:{
-             amount : "",
-             songlist: [{
-                 songid:"",
-                 songname:"",
-                 needpay: "",
-                 artists:[{
-                     name: "",
-                     id:""
-                 }],
-             album:{
-                     name:""
-             }
-      }]
-          }
+
       }
     },
     methods:{
@@ -94,14 +80,14 @@
           }
         },
 
-        submitData(){
-          this.$http.get('/api/search/song/qq?key='+this.inputkey+"&limit=100").then(res=>{
-             this.infolist.amount=res.data["total"];
-             this.infolist.songlist=res.data["songList"];
-             console.log(this.infolist.songlist)
-
-          })
-        }
+//        submitData(){
+//          this.$http.get('/api/search/song/qq?key='+this.inputkey+"&limit=100").then(res=>{
+//             this.infolist.amount=res.data["total"];
+//             this.infolist.songlist=res.data["songList"];
+//             console.log(this.infolist.songlist)
+//
+//          })
+//        }
 //      parseSongInfo(infolist){
 //
 //      }
