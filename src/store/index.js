@@ -5,14 +5,24 @@ import Vue from 'vue';
 import Vuex from 'vuex'
 Vue.use(Vuex);
 const state = {
-  count: 1
+  option:"",
+  keywords:""
 }
 const mutations = {
-  INCREMENT (state) {
-    state.count++
+  UPDATE (state,op) {
+    state.option=op.k;
+    state.keywords=op.d;
+    // console.log(op.d)
+
+  }
+}
+const actions= {
+  UPDATE (context) {
+    context.commit('UPDATE')
   }
 }
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  actions
 })

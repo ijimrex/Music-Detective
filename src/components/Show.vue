@@ -14,9 +14,9 @@
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
         <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
-        <!--<router-link to="/result">-->
-          <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click="submitData">搜索</el-button>
-        <!--</router-link>-->
+        <router-link to="/result">
+          <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click=handleClick(radio,inputkey)>搜索</el-button>
+        </router-link>
       </div>
     </div>
     <div id="rank-bottom" style="width: 100%;height: 720px; overflow: hidden;">
@@ -47,7 +47,7 @@
 </template>
 <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 <script >
-
+  import {mapMutations} from 'vuex'
 //  var data={}
   export default {
     created() {
@@ -73,15 +73,15 @@
              album:{
                      name:""
              }
-
-
       }]
           }
-
-
       }
     },
     methods:{
+      handleClick(k,d) {
+        this.$store.commit('UPDATE',{k,d});
+//        alert(k+d)
+      },
         changeph(){
           switch (this.radio) {
             case 1: {this.phtext="请输入歌名";

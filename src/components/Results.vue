@@ -40,6 +40,7 @@
 </template>
 <script>
   import {mapState} from 'vuex';
+
   export default {
     name: 'results',
     data () {
@@ -50,7 +51,8 @@
           artist: '薛之谦',
           album: '《高尚》',
           quality: '320k',
-          date:'2017'
+          date:'2017',
+          h:this.count
         },{
           name: '夜曲',
           artist: '周杰伦',
@@ -62,7 +64,7 @@
       }
     },computed: mapState({
       count: function(state) {
-        return state.count;
+        return state.keywords;
       }})
 //    vuex: {
 //      getters: {
