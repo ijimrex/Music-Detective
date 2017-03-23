@@ -1,6 +1,8 @@
 <template>
   <div style="width:100%;position: relative">
-    <navigator></navigator>
+    <navigator2>
+
+    </navigator2>
 
     <div style="width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
       <el-tabs type="border-card"  v-model="tagname" @tab-click="handleClick">
@@ -146,6 +148,7 @@
 //        tagname:1,
           tagname: '0',
           site:'qq',
+          type: 'song'
       }
     },
 
@@ -214,9 +217,9 @@
                this.tableData.push(a);
               this.ready=true
               this.loading=false
-
             }
-
+          }).catch(e => {
+            this.loading=false
           })
         },
 

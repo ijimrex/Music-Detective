@@ -10,6 +10,7 @@
           <el-radio :label="1"style="width:20% ;position:relative;float: left;margin-left: 20%;font-family: 'Lucida Grande';color: beige;">歌名 </el-radio>
           <el-radio :label="2"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">歌手 </el-radio>
           <el-radio :label="3"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">专辑 </el-radio>
+          <el-radio :label="4"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">歌单 </el-radio>
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
