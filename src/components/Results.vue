@@ -1,8 +1,11 @@
 <template>
   <div style="width:100%;position: relative">
     <navigator></navigator>
-    <div style="width: 80%;min-height:900px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family: poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+    <div style="width: 80%;min-height:900px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+
+      <div >
       <el-table
+        v-loading="loading"
         :data="tableData"
         stripe
         style="width: 100%">
@@ -31,6 +34,7 @@
       </el-table>
       <p></p>
       <p></p>
+    </div>
         <div style="margin-left: auto;margin-right: auto;position: relative;width: 240px" v-if=ready>
         <el-pagination
           small
@@ -70,6 +74,7 @@
           total:0,
           page:1,
           ready:false,
+          loading: false,
 
 
         num:0,
@@ -117,6 +122,7 @@
       ),
       methods:{
         handleCurrentChange(val){
+          this.loading=true
           this.page=val
           this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=30&page="+this.page).then(res=>{
             this.total=res.data["total"];
@@ -129,6 +135,7 @@
               a.artist=list[i]["artists"][0]["name"]
               a.album=list[i]["album"]["name"]
               this.tableData.push(a);
+              this.loading=false
 
 
             }
@@ -136,7 +143,9 @@
           })
         },
         submitData(){
+          this.loading=true;
           this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=100$page="+this.page).then(res=>{
+
               this.total=res.data["total"];
             var list=res.data["songList"];
             for (var i=0;i<list.length;i++){
@@ -146,6 +155,7 @@
                 a.album=list[i]["album"]["name"]
                this.tableData.push(a);
               this.ready=true
+              this.loading=false
 
             }
 

@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: rgb(15,15,15) ;width: 100%;height: 80px;position: fixed;z-index: 999;">
+  <div style="background-color: rgb(15,15,15) ;width: 100%;height: 80px;position: fixed;z-index: 999999999;">
     <div id="nevigator-bottom">
       <div id="icon" style="background-color:;width:30%;height:50px;margin-left: 1%;float: left;position: relative">
         <img src="/static/pic/Logo-Music.png" height="130%"></div>
