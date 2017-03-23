@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%;position: relative">
     <navigator></navigator>
-    <div style="width: 80%;min-height:550px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family: poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+    <div style="width: 80%;min-height:900px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family: poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
       <el-table
         :data="tableData"
         stripe
@@ -29,20 +29,23 @@
           <!--label="发行时间">-->
         <!--</el-table-column>-->
       </el-table>
+      <p></p>
+      <p></p>
+        <div style="margin-left: auto;margin-right: auto;position: relative;width: 240px" v-if=ready>
+        <el-pagination
+          small
+          layout="prev, pager, next"
+          :total=total
+          :current-page=page
+          @current-change="handleCurrentChange"
+          >
+        </el-pagination>
+        </div>
     </div>
-    <div class="block">
-      <el-pagination
-        small
-        layout="prev, pager, next"
-        :total=total
-        :current-page=page
-        @current-change="handleCurrentChange">
-      </el-pagination>
-    </div>
+
 
 
     <footbar></footbar>
-    {{page}}
     <!--{{option}}-->
     <!--{{keyword}}-->
     <!--{{num}}-->
@@ -66,6 +69,7 @@
           tableData:[],
           total:0,
           page:1,
+          ready:false,
 
 
         num:0,
@@ -114,7 +118,7 @@
       methods:{
         handleCurrentChange(val){
           this.page=val
-          this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=100&page="+this.page).then(res=>{
+          this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=30&page="+this.page).then(res=>{
             this.total=res.data["total"];
             var list=res.data["songList"];
             this.tableData=[]
@@ -125,6 +129,7 @@
               a.artist=list[i]["artists"][0]["name"]
               a.album=list[i]["album"]["name"]
               this.tableData.push(a);
+
 
             }
 
@@ -140,6 +145,7 @@
                 a.artist=list[i]["artists"][0]["name"]
                 a.album=list[i]["album"]["name"]
                this.tableData.push(a);
+              this.ready=true
 
             }
 
