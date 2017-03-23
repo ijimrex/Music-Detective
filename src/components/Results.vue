@@ -2,36 +2,100 @@
   <div style="width:100%;position: relative">
     <navigator></navigator>
     <div style="width: 80%;min-height:900px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+      <el-tabs type="border-card">
+        <el-tab-pane label="QQ音乐">
+        <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+          <el-table-column
+            prop="name"
+            label="歌名"
+            width="400px">
+          </el-table-column>
+          <el-table-column
+            prop="artist"
+            label="歌手"
+            width="300px">
+          </el-table-column>
+          <el-table-column
+            prop="album"
+            label="专辑">
+          </el-table-column>
+        </el-table></el-tab-pane>
+        <el-tab-pane label="虾米音乐">
+          <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="歌名"
+              width="400px">
+            </el-table-column>
+            <el-table-column
+              prop="artist"
+              label="歌手"
+              width="300px">
+            </el-table-column>
+            <el-table-column
+              prop="album"
+              label="专辑">
+            </el-table-column>
+          </el-table></el-tab-pane>
+        </el-tab-pane>
+        <el-tab-pane label="网易云音乐">
+          <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="歌名"
+              width="400px">
+            </el-table-column>
+            <el-table-column
+              prop="artist"
+              label="歌手"
+              width="300px">
+            </el-table-column>
+            <el-table-column
+              prop="album"
+              label="专辑">
+            </el-table-column>
+          </el-table></el-tab-pane>
+        </el-tab-pane>
+        <el-tab-pane label="Spotify">
+          <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="歌名"
+              width="400px">
+            </el-table-column>
+            <el-table-column
+              prop="artist"
+              label="歌手"
+              width="300px">
+            </el-table-column>
+            <el-table-column
+              prop="album"
+              label="专辑">
+            </el-table-column>
+          </el-table></el-tab-pane>
+        </el-tab-pane>
+        <el-tab-pane label="iTunes">
+          <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="歌名"
+              width="400px">
+            </el-table-column>
+            <el-table-column
+              prop="artist"
+              label="歌手"
+              width="300px">
+            </el-table-column>
+            <el-table-column
+              prop="album"
+              label="专辑">
+            </el-table-column>
+          </el-table></el-tab-pane>
+        </el-tab-pane>
 
-      <div >
-      <el-table
-        v-loading="loading"
-        :data="tableData"
-        stripe
-        style="width: 100%">
-        <el-table-column
-          prop="name"
-          label="歌名"
-          width="400px">
-        </el-table-column>
-        <el-table-column
-          prop="artist"
-          label="歌手"
-          width="300px">
-        </el-table-column>
-        <el-table-column
-          prop="album"
-          label="专辑">
-        </el-table-column>
-        <!--<el-table-column-->
-          <!--prop="quality"-->
-          <!--label="音质"><a href="a"></a>-->
-        <!--</el-table-column>-->
-        <!--<el-table-column-->
-          <!--prop="date"-->
-          <!--label="发行时间">-->
-        <!--</el-table-column>-->
-      </el-table>
+      </el-tabs>
+      <div>
+
       <p></p>
       <p></p>
     </div>

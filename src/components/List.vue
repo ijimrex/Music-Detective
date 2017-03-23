@@ -1,0 +1,30 @@
+<template>
+  <el-table
+    v-loading="loading"
+    :data="tableData"
+    stripe
+    style="width: 100%">
+    <el-table-column
+      prop="name"
+      label="歌名"
+      width="400px">
+    </el-table-column>
+    <el-table-column
+      prop="artist"
+      label="歌手"
+      width="300px">
+    </el-table-column>
+    <el-table-column
+      prop="album"
+      label="专辑">
+    </el-table-column>
+    <!--<el-table-column-->
+    <!--prop="quality"-->
+    <!--label="音质"><a href="a"></a>-->
+    <!--</el-table-column>-->
+    <!--<el-table-column-->
+    <!--prop="date"-->
+    <!--label="发行时间">-->
+    <!--</el-table-column>-->
+  </el-table>
+</template>
