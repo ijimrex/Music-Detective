@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%;position: relative">
     <navigator></navigator>
-    <div style="width: 80%;height:1300px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px">
+    <div style="width: 80%;min-height:550px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family: poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
       <el-table
         :data="tableData"
         stripe
@@ -30,12 +30,22 @@
         <!--</el-table-column>-->
       </el-table>
     </div>
+    <div class="block">
+      <el-pagination
+        small
+        layout="prev, pager, next"
+        :total=total
+        :current-page=page
+        @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
 
 
     <footbar></footbar>
-    {{option}}
-    {{keyword}}
-    {{num}}
+    {{page}}
+    <!--{{option}}-->
+    <!--{{keyword}}-->
+    <!--{{num}}-->
     <!--{{$store.state.count}}-->
   </div>
 
@@ -54,12 +64,10 @@
     data () {
       return {
           tableData:[],
-//              {name:'',
-//            artist: '',
-//            album: '',
-////            quality: '',
-////            date:'',
-//          }],
+          total:0,
+          page:1,
+
+
         num:0,
 //        tableData: [{
 //          name: '高尚',
@@ -104,10 +112,27 @@
 
       ),
       methods:{
+        handleCurrentChange(val){
+          this.page=val
+          this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=100&page="+this.page).then(res=>{
+            this.total=res.data["total"];
+            var list=res.data["songList"];
+            this.tableData=[]
+            console.log(list)
+            for (var i=0;i<list.length;i++){
+              var a={name:"",artist:"",album:""};
+              a.name=list[i]["name"];
+              a.artist=list[i]["artists"][0]["name"]
+              a.album=list[i]["album"]["name"]
+              this.tableData.push(a);
+
+            }
+
+          })
+        },
         submitData(){
-          this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=100").then(res=>{
-//            this.infolist.amount=res.data["total"];
-//            this.infolist.songlist=res.data["songList"];
+          this.$http.get('/api/search/song/qq?key='+this.keyword+"&limit=100$page="+this.page).then(res=>{
+              this.total=res.data["total"];
             var list=res.data["songList"];
             for (var i=0;i<list.length;i++){
                 var a={name:"",artist:"",album:""};
@@ -117,14 +142,10 @@
                this.tableData.push(a);
 
             }
-//            console.log(list.length)
+
           })
         },
-//        parseinfo(infolist){
-//            for (var i=0; i<lengthOf(infolist) ;i++){
-//
-//            }
-//        }
+
       }
 
   }

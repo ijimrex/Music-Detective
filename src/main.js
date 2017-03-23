@@ -4,17 +4,21 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import 'element-ui/lib/theme-default/index.css'
 import Nav from './components/navigator.vue'
 import Ranklist from './components/RankList.vue'
 import Footbar from './components/Footbar.vue'
 import store from './store'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 var vueResource = require('vue-resource');
 Vue.use(vueResource);
 Vue.component('navigator', Nav)
 Vue.component('rank-list', Ranklist)
 Vue.component('footbar', Footbar)
 Vue.use(ElementUI)
+Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

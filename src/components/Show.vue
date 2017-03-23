@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%;position: relative">
     <navigator></navigator>
-    <div id="middle-bottom" style="width:100%;height: 800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
+    <div id="middle-bottom" style="width:100%;height:800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
       <!--<video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">-->
         <!--<source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">-->
       <!--</video>-->
