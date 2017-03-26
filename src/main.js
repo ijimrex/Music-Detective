@@ -11,7 +11,7 @@ import Ranklist from './components/RankList.vue'
 // import List from './components/List.vue'
 import Footbar from './components/Footbar.vue'
 import store from './store'
-var vueResource = require('vue-resource');
+const vueResource = require('vue-resource');
 Vue.use(vueResource);
 Vue.component('navigator', Nav)
 Vue.component('navigator2', Nav2)

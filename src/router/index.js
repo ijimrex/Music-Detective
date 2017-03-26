@@ -6,28 +6,30 @@ import Profile from '@/components/Profile'
 import Rank from '@/components/Rank'
 
 Vue.use(Router)
-
-export default new Router({
+const router = new Router({
+  mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'Show',
-      component: Show
-    },
-    {
-      path: '/result',
-      name: 'Results',
-      component: Results
-    },
-    {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile
-    },
-    {
-      path: '/rank',
-      name: 'Rank',
-      component: Rank
-    }
-  ]
+  {
+    path: '/',
+    name: 'Show',
+    component: Show
+  },
+  {
+    path: '/result',
+    name: 'Results',
+    component: Results
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },
+  {
+    path: '/rank',
+    name: 'Rank',
+    component: Rank
+  }
+]
 })
+
+export default router
