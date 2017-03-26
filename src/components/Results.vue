@@ -104,8 +104,12 @@
           <el-tab-pane label="QQ音乐" >
             <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
               <el-table-column
-                prop="picurl"
-                label="专辑">
+
+                label="封面">
+                <template scope="scope">
+                  <img :src=scope.row.album width="80px" height="80px">
+                </template>
+                <!--<img scr=props.row.album>-->
               </el-table-column>
               <el-table-column
                 prop="name"
@@ -122,8 +126,11 @@
           <el-tab-pane label="虾米音乐">
             <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
               <el-table-column
-                prop="picurl"
-                label="专辑">
+                prop="album"
+                label="封面">
+                <template scope="scope">
+                  <img :src=scope.row.album width="80px" height="80px">
+                </template>
               </el-table-column>
               <el-table-column
                 prop="name"
@@ -140,8 +147,11 @@
           <el-tab-pane label="网易云音乐">
             <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
               <el-table-column
-                prop="picurl"
-                label="专辑">
+                prop="album"
+                label="封面">
+                <template scope="scope">
+                  <img :src=scope.row.album width="80px" height="80px">
+                </template>
               </el-table-column>
               <el-table-column
                 prop="name"
@@ -158,8 +168,13 @@
           <el-tab-pane label="Spotify">
             <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
               <el-table-column
-                prop="picurl"
-                label="专辑">
+                prop="album"
+                label="封面">
+                <template scope="scope">
+
+                  <img :src=scope.row.album width="80px" height="80px">
+
+                </template>
               </el-table-column>
               <el-table-column
                 prop="name"
@@ -176,8 +191,11 @@
           <el-tab-pane label="iTunes">
             <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
               <el-table-column
-                prop="picurl"
-                label="专辑">
+                prop="album"
+                label="封面">
+                <template scope="scope">
+                  <img :src=scope.row.album width="80px" height="80px" >
+                </template>
               </el-table-column>
               <el-table-column
                 prop="name"
@@ -318,6 +336,7 @@
 
         },
         pasrseData(list){
+          this.tableData=[]
 //            alert(this.type)
             if (this.type=="song") {
 
@@ -334,16 +353,17 @@
               }
             }
             else if (this.type=="album"){
-              console.log(list)
+
+//              console.log(list)
               for (var i = 0; i < list.length; i++) {
                 if (list[i]["name"][0] == '&' && list[i]["name"][1] == '#' || list[i]["artist"]["name"][0] == '&' && list[i]["artist"]["name"][1] == '#' )
                   continue
                 var a = {name: "", artist: "", picurl: ""};
                 a.name = list[i]["name"]
-                console.log(a.name)
+//                console.log(a.name)
                 a.artist = list[i]["artist"]["name"]
                 a.album = list[i]["coverSmall"]
-                console.log(a)
+                console.log(a.album)
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false
