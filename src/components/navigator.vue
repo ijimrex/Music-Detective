@@ -1,12 +1,13 @@
 <template>
   <div style="background-color: rgb(15,15,15) ;width: 100%;height: 80px;position: fixed;z-index: 999999999;">
     <div id="nevigator-bottom">
-      <div id="icon" style="background-color:;width:30%;height:50px;margin-left: 1%;float: left;position: relative">
-        <img src="/static/pic/Logo-Music.png" height="130%"></div>
+      <div id="icon" style="background-color:;width:30%;height:50px;margin-left: 1%;float: left;position: relative"><router-link to="/">
+        <img src="/static/pic/Logo-Music.png" height="130%"></router-link></div>
       <div style="position: relative;float:left;width: 50%;padding-top:18px;margin-left: 5%"id="note">
         <el-menu  style="background-color: transparent" mode="horizontal" >
-          <el-menu-item style="background-color: transparent;color: aliceblue;font-family:'Lucida Grande';font-size: 1.5em;" index="1"><a href="#">主页</a></el-menu-item>
-          <el-menu-item style="background-color: transparent;color: aliceblue;font-family:'Lucida Grande';font-size: 1.5em;margin-left:10%" index="2"><router-link to="/#rank-bottom">排行榜</router-link></el-menu-item>
+
+          <el-menu-item style="background-color: transparent;color: aliceblue;font-family:'Lucida Grande';font-size: 1.5em;" index="1"> <router-link to="/">主页</router-link></el-menu-item>
+          <el-menu-item style="background-color: transparent;color: aliceblue;font-family:'Lucida Grande';font-size: 1.5em;margin-left:10%" index="2"><a href="#rank-line">排行榜</a></el-menu-item>
         </el-menu>
 
       </div>

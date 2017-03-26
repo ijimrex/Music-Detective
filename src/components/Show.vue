@@ -2,9 +2,9 @@
   <div style="width:100%;position: relative">
     <navigator></navigator>
     <div id="middle-bottom" style="width:100%;height:800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
-      <video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">
-        <source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">
-      </video>
+      <!--<video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">-->
+        <!--<source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">-->
+      <!--</video>-->
       <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 230px;position: relative;">
         <el-radio-group v-model="radio" style="width:100%;margin-right: auto;margin-left: auto" @change="changeph">
           <el-radio :label="1"style="width:20% ;position:relative;float: left;margin-left: 20%;font-family: 'Lucida Grande';color: beige;">歌名 </el-radio>
@@ -14,12 +14,22 @@
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
-        <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
+        <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" @keyup.enter='alert("s")' style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
         <router-link to="/result">
           <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click=handleClick(radio,inputkey)>搜索</el-button>
         </router-link>
       </div>
+      <div id="warn" style="width:10%;margin-left: auto;margin-right: auto">
+      <el-alert
+        title="请输入……"
+        type="warning"
+        show-icon
+        style="display: none">
+      </el-alert>
+      </div>
+      <!--<div id="rankanchor" height="1px"></div>-->
     </div>
+
     <div id="rank-bottom" style="width: 100%;height: 720px; overflow: hidden;">
       <img style="width: 100%;height: 720px;position: absolute;z-index: -999" src="/static/pic/concert-bg.jpg">
       <div id="rank-line"style="width: 100%;height: 100px;margin-left:auto;margin-right: auto;padding-top: 50px;text-align: center;font-size: 2em;font-family: 'Lucida Grande';font-weight:bold;color: beige;background-color: darkslateblue;opacity: 0.7">
@@ -48,11 +58,17 @@
 </template>
 <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 <script >
+
   import {mapMutations} from 'vuex'
 //  var data={}
   export default {
+
+
+
+
     created() {
       document.title = this.$route.name
+      this.enterkey()
     },
     name: 'show',
     data () {
@@ -61,6 +77,7 @@
          radio:1,
          phtext:"请输入歌名",
          inputkey:"",
+        showornot:"none",
 
           rank1: [{
           index:1,
@@ -97,7 +114,6 @@
             song: 'Bad and Boujee (Explicit)',
             name: 'Migos',
           }
-
         ],
         rank3: [{
           index:1,
@@ -138,12 +154,21 @@
 
         ]
 
-
-
       }
     },
     methods:{
+      enterkey(){
+        document.onkeydown = function(e) {
+          //捕捉回车事件
+          var ev = (typeof event!= 'undefined') ? window.event : e;
+          if(ev.keyCode == 13 && document.activeElement.className == "el-input__inner") {
+            this.handleClick(this.radio,this.inputkey)
+            this.$router.push({path:'/result'})
+          }
+        }
+      },
       handleClick(k,d) {
+        alert("in")
         this.$store.commit('UPDATE',{k,d});
 //        alert(k+d)
       },
