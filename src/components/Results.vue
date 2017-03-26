@@ -263,7 +263,7 @@
           site:'qq',
           type: 'song',
         listType:'songList',
-        link: https://y.qq.com/n/yqq/album/0024bjiL2aocxT.html
+//        link: https://y.qq.com/n/yqq/album/0024bjiL2aocxT.html
       }
     },
 

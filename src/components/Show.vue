@@ -27,10 +27,10 @@
         <!--{{ infolist.songlist["album"]["cover"] }}-->
       </div>
       <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 750px%;position: relative;">
-        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" style="background-color: rgba(127,255,212, 0.5)"  ></rank-list>
-        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"  style="background-color: rgba(233, 150, 122, 0.5)"  ></rank-list>
-        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜"  style="background-color: rgba(72, 61, 139, 0.5)" ></rank-list>
-        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜"style="background-color: rgba(255,250,240, 0.5)"></rank-list>
+        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" :info=rank1 style="background-color: rgba(127,255,212, 0.7)"   ></rank-list>
+        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"  :info=rank2 style="background-color: rgba(233, 150, 122, 0.7)"  ></rank-list>
+        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜" :info=rank3 style="background-color: rgba(72, 90, 139, 0.7)" ></rank-list>
+        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜" :info=rank4 style="background-color: rgba(200,200,200, 0.7)"></rank-list>
       </div>
 
     </div>
@@ -61,6 +61,84 @@
          radio:1,
          phtext:"请输入歌名",
          inputkey:"",
+
+          rank1: [{
+          index:1,
+          song: 'Shape Of You',
+          name: 'Ed Sheeran',
+        },
+          {
+
+            index:2,
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
+          },
+          {
+
+            index:3,
+            song: 'Bad and Boujee (Explicit)',
+            name: 'Migos',
+          }
+        ],
+        rank2: [{
+          index:1,
+          song: 'Shape Of You',
+          name: 'Ed Sheeran',
+        },
+          {
+
+            index:2,
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
+          },
+          {
+
+            index:3,
+            song: 'Bad and Boujee (Explicit)',
+            name: 'Migos',
+          }
+
+        ],
+        rank3: [{
+          index:1,
+          song: 'Shape Of You',
+          name: 'Ed Sheeran',
+        },
+          {
+
+            index:2,
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
+          },
+          {
+
+            index:3,
+            song: 'Bad and Boujee (Explicit)',
+            name: 'Migos',
+          }
+
+        ],
+        rank4: [{
+          index:1,
+          song: 'Shape Of You',
+          name: 'Ed Sheeran',
+        },
+          {
+
+            index:2,
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
+          },
+          {
+
+            index:3,
+            song: 'Bad and Boujee (Explicit)',
+            name: 'Migos',
+          }
+
+        ]
+
+
 
       }
     },
