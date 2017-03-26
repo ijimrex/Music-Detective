@@ -262,7 +262,8 @@
           tagname: '0',
           site:'qq',
           type: 'song',
-        listType:'songList'
+        listType:'songList',
+        link: https://y.qq.com/n/yqq/album/0024bjiL2aocxT.html
       }
     },
 

@@ -2,15 +2,15 @@
   <div style="width:100%;position: relative">
     <navigator></navigator>
     <div id="middle-bottom" style="width:100%;height:800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
-      <!--<video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">-->
-        <!--<source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">-->
-      <!--</video>-->
+      <video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">
+        <source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">
+      </video>
       <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 230px;position: relative;">
         <el-radio-group v-model="radio" style="width:100%;margin-right: auto;margin-left: auto" @change="changeph">
           <el-radio :label="1"style="width:20% ;position:relative;float: left;margin-left: 20%;font-family: 'Lucida Grande';color: beige;">歌名 </el-radio>
           <el-radio :label="2"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">歌手 </el-radio>
           <el-radio :label="3"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">专辑 </el-radio>
-          <el-radio :label="4"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">歌单 </el-radio>
+          <!--<el-radio :label="4"style="width:20%;position:relative;float: left;font-family: 'Lucida Grande';color: beige;">歌单 </el-radio>-->
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
@@ -27,10 +27,10 @@
         <!--{{ infolist.songlist["album"]["cover"] }}-->
       </div>
       <div id="rank-list-bottom" style="background-color: azure;width: 100%;height: 750px%;position: relative;">
-        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" style="background-color: aquamarine;opacity: 0.5" ></rank-list>
-        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"style="background-color: darksalmon;opacity: 0.5" ></rank-list>
-        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜"style="background-color: darkslateblue;opacity: 0.5"></rank-list>
-        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜"style="background-color: antiquewhite;opacity: 0.5"></rank-list>
+        <rank-list picurl="/static/pic/billboard-logo.jpg" pictitle="Billboard" style="background-color: rgba(127,255,212, 0.5)"  ></rank-list>
+        <rank-list picurl="/static/pic/Logo-HitFM.jpg" pictitle="HitFM"  style="background-color: rgba(233, 150, 122, 0.5)"  ></rank-list>
+        <rank-list picurl="/static/pic/Music-Charts.jpg" pictitle="UK榜"  style="background-color: rgba(72, 61, 139, 0.5)" ></rank-list>
+        <rank-list picurl="/static/pic/1481781608605_.png" pictitle="中国top排行榜"style="background-color: rgba(255,250,240, 0.5)"></rank-list>
       </div>
 
     </div>
