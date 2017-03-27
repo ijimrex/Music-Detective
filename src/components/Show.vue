@@ -14,7 +14,10 @@
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
+        <form @submit=enterkey(radio,inputkey)>
         <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" @keyup.enter='alert("s")' style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
+        </form>
+
         <router-link to="/result">
           <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click=handleClick(radio,inputkey)>搜索</el-button>
         </router-link>
@@ -68,7 +71,7 @@
 
     created() {
       document.title = this.$route.name
-      this.enterkey()
+
     },
     name: 'show',
     data () {
@@ -157,18 +160,11 @@
       }
     },
     methods:{
-      enterkey(){
-        document.onkeydown = function(e) {
-          //捕捉回车事件
-          var ev = (typeof event!= 'undefined') ? window.event : e;
-          if(ev.keyCode == 13 && document.activeElement.className == "el-input__inner") {
-            this.handleClick(this.radio,this.inputkey)
-            this.$router.push({path:'/result'})
-          }
-        }
+      enterkey(k,d){
+        this.$store.commit('UPDATE',{k,d});
+        this.$router.push({path:'/result'})
       },
       handleClick(k,d) {
-        alert("in")
         this.$store.commit('UPDATE',{k,d});
 //        alert(k+d)
       },
