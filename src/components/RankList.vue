@@ -8,8 +8,8 @@
     <div style="width: 90%;margin:10px;text-align: center;">
       <ul id="rank-content" class="listcontent" style="color: #b3d0ef;list-style: none;"  >
         <li v-for="item in info" >
-          <div style="width: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><a href="#" style="font-size: 1.3em;color: white "> {{item.index}} {{ item.song }}</a><br/>
-            <a href="#" style="font-size: 1.1em;color: #d3d6d9;   "> {{item.name}}</a></div><br/>
+          <div style="width: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><a href="#" style="font-size: 1.3em;color: white " @click=songsearch(item.song)> {{item.index}} {{ item.song }}</a><br/>
+            <a href="#" style="font-size: 1.1em;color: #d3d6d9; " @click=songsearch(item.name)> {{item.name}}</a></div><br/>
         </li>
       </ul>
     </div>
@@ -29,7 +29,19 @@
 //          msg :"ds",
 
       }
+    },
+    methods:{
+      songsearch(d){
+        var k=1;
+//        console.log(d)
+        this.$store.commit('UPDATE',{k,d});
+        this.$router.push({path:'/result'})
+
+      },
+
     }
+
+
   }
 
 </script>

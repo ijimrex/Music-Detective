@@ -85,25 +85,25 @@
           rank1: [{
           index:1,
           song: 'Shape Of You',
-          name: 'Ed Sheeran',
+          name: 'Ed Sheeran',
         },
           {
 
             index:2,
-            song: 'That\'s What I Like',
-            name: 'Bruno Mars',
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
           },
           {
 
             index:3,
-            song: 'Bad and Boujee (Explicit)',
+            song: 'Shape Of You Bad and Boujee (Explicit)',
             name: 'Migos',
           }
         ],
         rank2: [{
           index:1,
           song: 'Shape Of You',
-          name: 'Ed Sheeran',
+          name: 'Ed Sheeran',
         },
           {
 
@@ -121,7 +121,7 @@
         rank3: [{
           index:1,
           song: 'Shape Of You',
-          name: 'Ed Sheeran',
+          name: 'Ed Sheeran',
         },
           {
 
@@ -140,7 +140,7 @@
         rank4: [{
           index:1,
           song: 'Shape Of You',
-          name: 'Ed Sheeran',
+          name: 'Ed Sheeran',
         },
           {
 

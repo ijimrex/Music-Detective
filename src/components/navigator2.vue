@@ -10,10 +10,11 @@
           <el-menu-item style="background-color: transparent;color: aliceblue;font-family:'Lucida Grande';font-size: 1.5em;margin-left:10%" index="2"><router-link to="/#rank-line">排行榜</router-link></el-menu-item>
         </el-menu>
       </div>
-      <div id="search-holder" style=";auto;height: 50px;width:15%;padding-top: 33px;position: relative;float: right">
-        <el-input    icon="search" id="pht" size="small" :placeholder="phtext" v-model="inputkey" style="float: left;width: 60%;height:30px;margin-left: 15%;position: relative;float: left"></el-input>
-        <router-link to="/result">
-        </router-link>
+      <div id="search-holder" style=";auto;height: 50px;width:12%;padding-top: 33px;position: relative;float: right">
+        <form @submit.prevent="enterkey(newinputkey)">
+        <el-input    icon="search" id="pht" size="small" :placeholder="phtext" v-model="newinputkey" style="float: left;width: 60%;height:30px;margin-left: 15%;position: relative;float: left"></el-input>
+          </form>
+        <!--{{newinputkey}}-->
       </div>
       <div id="register" style="background-color: aliceblue;float: right;width:5%"></div>
     </div>
@@ -26,13 +27,15 @@
     data () {
       return {
         phtext:"歌名",
-        inputkey:""
+        newinputkey:""
       }
     },
     methods:{
-      handleClick(k,d) {
+      enterkey(d){
+          var k=1;
         this.$store.commit('UPDATE',{k,d});
-//        alert(k+d)
+//        this.$router.push({path:'/result'})
+        return false
       },
     }
   }

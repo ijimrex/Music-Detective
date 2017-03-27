@@ -10,8 +10,10 @@ const state = {
 }
 const mutations = {
   UPDATE (state,op) {
+    // console.log("in store")
     state.option=op.k;
     state.keywords=op.d;
+    console.log(state.keywords)
     // console.log(op.d)
 
   }

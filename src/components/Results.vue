@@ -258,14 +258,24 @@
           ready:false,
           loading: false,
           num:0,
-//        tagname:1,
           tagname: '0',
           site:'qq',
           type: 'song',
-        listType:'songList',
-//        link: https://y.qq.com/n/yqq/album/0024bjiL2aocxT.html
+          listType:'songList',
+
       }
     },
+    watch: {
+      keyword: function () {
+          this.type='song',
+            this.listType='songList',
+            this.site='qq'
+        this.qqpage=1
+        this.xiamipage=1
+          this.submitData()
+      }
+    },
+
 
     computed: mapState({
       keyword: function(state) {
@@ -307,13 +317,18 @@
           })
         },
         submitData(){
-            this.changeType()
+          this.changeType()
           this.loading=true;
+          console.log(this.type+'/'+this.site+'?key='+this.keyword+"&limit=15&page="+this.page)
           this.$http.get('/api/search/'+this.type+'/'+this.site+'?key='+this.keyword+"&limit=15&page="+this.page).then(res=>{
-
+            console.log(res)
               this.total=res.data["total"];
             var list=res.data[this.listType];
-            this.pasrseData(list);
+
+            var iszero=this.pasrseData(list);
+            if (iszero){
+              this.loading=false
+            }
 
           }).catch(e => {
             this.loading=false
@@ -337,6 +352,9 @@
 
         },
         pasrseData(list){
+            if (list.length==0){
+                return true
+            }
           this.tableData=[]
 //            alert(this.type)
             if (this.type=="song") {
@@ -371,6 +389,7 @@
               }
 
             }
+            return false
         }
 
       }
