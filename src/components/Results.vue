@@ -51,7 +51,7 @@
             <el-table-column
               prop="name"
               label="歌名"
-              width="400px">
+              width="300px">
             </el-table-column>
             <el-table-column
               prop="artist"
@@ -60,7 +60,8 @@
             </el-table-column>
             <el-table-column
               prop="album"
-              label="专辑" width="400px">
+              label="专辑"
+              width="400px">
             </el-table-column>
             <el-table-column
               label="试听"
@@ -76,7 +77,7 @@
             <el-table-column
               prop="name"
               label="歌名"
-              width="400px">
+              width="300px">
             </el-table-column>
             <el-table-column
               prop="artist"
@@ -94,7 +95,7 @@
             <el-table-column
               prop="name"
               label="歌名"
-              width="400px">
+              width="300px">
             </el-table-column>
             <el-table-column
               prop="artist"
@@ -112,7 +113,7 @@
             <el-table-column
               prop="name"
               label="歌名"
-              width="400px">
+              width="300px">
             </el-table-column>
             <el-table-column
               prop="artist"
