@@ -3,6 +3,19 @@
     <navigator2>
 
     </navigator2>
+    <div id="player-bottom" style="position:fixed;width: 26%;height:40px;z-index:9999;margin-left: 59%;padding-top: 20px;">
+    <div id='player-show' style="position: relative;float: left; width:100%;">
+      <img id="alcv" :src=playercover style="width:50px;height:50px;float: left">
+      <div style="width: 60%;position: relative;float: left">
+      <div style="width: 100%;font-family: 'Lucida Grande';color: #c6cfda;font-size: 0.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-left: 5%">正在播放：{{playinfo}}</div>
+
+      <audio id="player" loop controls autoplay style="float: left;margin-left: 10px">
+        <source :src=listenurl type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      </div>
+    </div></div>
+
 
     <div style="width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
      <div v-if="type=='song'">
@@ -28,7 +41,7 @@
             label="试听"
              style="margin-left: 10%">
             <template scope="scope">
-              <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id)"></el-button>
+              <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id,scope.row.name,scope.row.artist)"></el-button>
             </template>
           </el-table-column>
 
@@ -236,10 +249,6 @@
         </div>
     </div>
 
-    <audio id="player" loop controls autoplay>
-      <source :src=listenurl type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
     <footbar></footbar>
     {{listenurl}}
     <!--{{site}}-->
@@ -277,7 +286,9 @@
           site:'qq',
           type: 'song',
           listType:'songList',
-          listenurl:""
+          listenurl:"",
+          playercover:"./static/pic/album.png",
+          playinfo:""
 
       }
     },
@@ -407,10 +418,11 @@
             }
             return false
         },
-        musicPlay(Murl){
+        musicPlay(Murl,name,song){
           this.$http.get('/api/get/'+this.type+'/'+this.site+'?id='+Murl).then(res=>{
 //            console.log(res.body)
             this.listenurl=res.body['url']
+            this.playinfo=name+"-"+song;
             document.getElementById("player").load();
           }).catch(e => {
             console.log("error in murl")
@@ -422,4 +434,29 @@
 
   }
 </script>
+<style>
+  audio:hover, audio:focus, audio:active
+  {
+    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+  }
 
+
+  audio
+  {
+    -webkit-transition:all 0.2s linear;
+    -moz-transition:all 0.2s linear;
+    -o-transition:all 0.2s linear;
+    transition:all 0.2s linear;
+    -moz-box-shadow: 2px 2px 4px 0px #006773;
+    -webkit-box-shadow:  2px 2px 4px 0px #006773;
+    box-shadow: 2px 2px 4px 0px #006773;
+    -moz-border-radius:7px 7px 7px 7px ;
+    -webkit-border-radius:7px 7px 7px 7px ;
+    border-radius:7px 7px 7px 7px ;
+  }
+</style>
