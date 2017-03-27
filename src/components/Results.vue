@@ -3,13 +3,13 @@
     <navigator2>
 
     </navigator2>
-    <div id="player-bottom" style="position:fixed;width: 26%;height:40px;z-index:9999;margin-left: 59%;padding-top: 20px;">
+    <div id="player-bottom" style="position:fixed;width: 26%;height:40px;z-index:9999;margin-left: 59%;padding-top: 10px;">
     <div id='player-show' style="position: relative;float: left; width:100%;">
-      <img id="alcv" :src=playercover style="width:50px;height:50px;float: left">
+      <img id="alcv" :src=playercover style="width:60px;height:60px;float: left">
       <div style="width: 60%;position: relative;float: left">
       <div style="width: 100%;font-family: 'Lucida Grande';color: #c6cfda;font-size: 0.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-left: 5%">正在播放：{{playinfo}}</div>
 
-      <audio id="player" loop controls autoplay style="float: left;margin-left: 10px">
+      <audio id="player" loop controls autoplay style="float: left;margin-left: 10px;margin-top:10px">
         <source :src=listenurl type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
@@ -17,7 +17,7 @@
     </div></div>
 
 
-    <div style="width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 90px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+    <div style="width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 120px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
      <div v-if="type=='song'">
       <el-tabs type="border-card"  v-model="tagname" @tab-click="handleClick">
         <el-tab-pane label="QQ音乐" >
@@ -41,7 +41,7 @@
             label="试听"
              style="margin-left: 10%">
             <template scope="scope">
-              <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id,scope.row.name,scope.row.artist)"></el-button>
+              <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id,scope.row.name,scope.row.artist,scope.row.picurl)"></el-button>
             </template>
           </el-table-column>
 
@@ -60,7 +60,14 @@
             </el-table-column>
             <el-table-column
               prop="album"
-              label="专辑">
+              label="专辑" width="400px">
+            </el-table-column>
+            <el-table-column
+              label="试听"
+              style="margin-left: 10%">
+              <template scope="scope">
+                <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id,scope.row.name,scope.row.artist,scope.row.picurl)"></el-button>
+              </template>
             </el-table-column>
           </el-table></el-tab-pane>
         </el-tab-pane>
@@ -250,7 +257,7 @@
     </div>
 
     <footbar></footbar>
-    {{listenurl}}
+    <!--{{listenurl}}-->
     <!--{{site}}-->
     <!--{{qqpage}}-->
     <!--{{xiamipage}}-->
@@ -258,6 +265,7 @@
     <!--{{keyword}}-->
     <!--{{num}}-->
     <!--{{$store.state.count}}-->
+    {{playercover}}
   </div>
 
 </template>
@@ -388,11 +396,13 @@
               for (var i = 0; i < list.length; i++) {
                 if (list[i]["name"][0] == '&' && list[i]["name"][1] == '#' || list[i]["artists"][0]["name"][0] == '&' && list[i]["artists"][0]["name"][1] == '#' || list[i]["album"]["name"][0] == '&' && list[i]["album"]["name"][1] == '#')
                   continue
-                var a = {name: "", artist: "", album: "",id:""};
+                var a = {name: "", artist: "", album: "",id:"",picurl:""};
                 a.name = list[i]["name"]
                 a.artist = list[i]["artists"][0]["name"]
                 a.album = list[i]["album"]["name"]
                 a.id=list[i]["id"]
+                a.picurl=list[i]["album"]["coverSmall"]
+                console.log(a.picurl)
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false
@@ -409,7 +419,6 @@
 //                console.log(a.name)
                 a.artist = list[i]["artist"]["name"]
                 a.album = list[i]["coverSmall"]
-                console.log(a.album)
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false
@@ -418,11 +427,13 @@
             }
             return false
         },
-        musicPlay(Murl,name,song){
+        musicPlay(Murl,name,song,cover){
           this.$http.get('/api/get/'+this.type+'/'+this.site+'?id='+Murl).then(res=>{
 //            console.log(res.body)
             this.listenurl=res.body['url']
             this.playinfo=name+"-"+song;
+            this.playercover=cover;
+            console.log(cover)
             document.getElementById("player").load();
           }).catch(e => {
             console.log("error in murl")
@@ -435,6 +446,16 @@
   }
 </script>
 <style>
+  #alcv:hover
+  {
+    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
   audio:hover, audio:focus, audio:active
   {
     -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
@@ -446,7 +467,7 @@
   }
 
 
-  audio
+  audio,#alcv
   {
     -webkit-transition:all 0.2s linear;
     -moz-transition:all 0.2s linear;
