@@ -96,7 +96,7 @@
           {
 
             index:3,
-            song: 'Shape Of You Bad and Boujee (Explicit)',
+            song: 'Bad and Boujee (Explicit) ',
             name: 'Migos',
           }
         ],
@@ -108,13 +108,13 @@
           {
 
             index:2,
-            song: 'That\'s What I Like',
-            name: 'Bruno Mars',
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
           },
           {
 
             index:3,
-            song: 'Bad and Boujee (Explicit)',
+            song: 'Bad and Boujee (Explicit) ',
             name: 'Migos',
           }
         ],
@@ -126,16 +126,15 @@
           {
 
             index:2,
-            song: 'That\'s What I Like',
-            name: 'Bruno Mars',
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
           },
           {
 
             index:3,
-            song: 'Bad and Boujee (Explicit)',
+            song: 'Bad and Boujee (Explicit) ',
             name: 'Migos',
           }
-
         ],
         rank4: [{
           index:1,
@@ -145,16 +144,15 @@
           {
 
             index:2,
-            song: 'That\'s What I Like',
-            name: 'Bruno Mars',
+            song: 'That\'s What I Like',
+            name: 'Bruno Mars',
           },
           {
 
             index:3,
-            song: 'Bad and Boujee (Explicit)',
+            song: 'Bad and Boujee (Explicit) ',
             name: 'Migos',
           }
-
         ]
 
       }
