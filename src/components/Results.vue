@@ -12,7 +12,7 @@
           <el-table-column
             prop="name"
             label="歌名"
-            width="400px">
+            width="300px">
           </el-table-column>
           <el-table-column
             prop="artist"
@@ -21,8 +21,17 @@
           </el-table-column>
           <el-table-column
             prop="album"
-            label="专辑">
+            label="专辑"
+            width="400px">
           </el-table-column>
+          <el-table-column
+            label="试听"
+             style="margin-left: 10%">
+            <template scope="scope">
+              <el-button  style="background-color: #979797; border-color: #2b445d" type="primary" size="small" icon="caret-right" @click="musicPlay(scope.row.id)"></el-button>
+            </template>
+          </el-table-column>
+
         </el-table></el-tab-pane>
         <el-tab-pane label="虾米音乐">
           <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
@@ -226,10 +235,16 @@
         </el-pagination>
         </div>
     </div>
+
+    <audio id="player" loop controls autoplay>
+      <source :src=listenurl type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <footbar></footbar>
+    {{listenurl}}
     <!--{{site}}-->
     <!--{{qqpage}}-->
     <!--{{xiamipage}}-->
-    <footbar></footbar>
     <!--{{option}}-->
     <!--{{keyword}}-->
     <!--{{num}}-->
@@ -262,6 +277,7 @@
           site:'qq',
           type: 'song',
           listType:'songList',
+          listenurl:""
 
       }
     },
@@ -319,12 +335,11 @@
         submitData(){
           this.changeType()
           this.loading=true;
-          console.log(this.type+'/'+this.site+'?key='+this.keyword+"&limit=15&page="+this.page)
+//          console.log(this.type+'/'+this.site+'?key='+this.keyword+"&limit=15&page="+this.page)
           this.$http.get('/api/search/'+this.type+'/'+this.site+'?key='+this.keyword+"&limit=15&page="+this.page).then(res=>{
-            console.log(res)
+//            console.log(res)
               this.total=res.data["total"];
             var list=res.data[this.listType];
-
             var iszero=this.pasrseData(list);
             if (iszero){
               this.loading=false
@@ -362,10 +377,11 @@
               for (var i = 0; i < list.length; i++) {
                 if (list[i]["name"][0] == '&' && list[i]["name"][1] == '#' || list[i]["artists"][0]["name"][0] == '&' && list[i]["artists"][0]["name"][1] == '#' || list[i]["album"]["name"][0] == '&' && list[i]["album"]["name"][1] == '#')
                   continue
-                var a = {name: "", artist: "", album: ""};
+                var a = {name: "", artist: "", album: "",id:""};
                 a.name = list[i]["name"]
                 a.artist = list[i]["artists"][0]["name"]
                 a.album = list[i]["album"]["name"]
+                a.id=list[i]["id"]
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false
@@ -390,7 +406,17 @@
 
             }
             return false
-        }
+        },
+        musicPlay(Murl){
+          this.$http.get('/api/get/'+this.type+'/'+this.site+'?id='+Murl).then(res=>{
+//            console.log(res.body)
+            this.listenurl=res.body['url']
+            document.getElementById("player").load();
+          }).catch(e => {
+            console.log("error in murl")
+          })
+        },
+
 
       }
 
