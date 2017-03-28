@@ -266,7 +266,7 @@
     <!--{{keyword}}-->
     <!--{{num}}-->
     <!--{{$store.state.count}}-->
-    {{playercover}}
+    <!--{{playercover}}-->
   </div>
 
 </template>
@@ -303,9 +303,11 @@
     },
     watch: {
       keyword: function () {
+        this.tagname='0',
           this.type='song',
             this.listType='songList',
             this.site='qq'
+            this.page=1
         this.qqpage=1
         this.xiamipage=1
           this.submitData()
