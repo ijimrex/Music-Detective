@@ -2,9 +2,9 @@
   <div style="width:100%;position: relative">
     <navigator></navigator>
     <div id="middle-bottom" style="width:100%;height:800px;background-color:;padding-top:80px;position: relative;overflow: hidden">
-      <!--<video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">-->
-        <!--<source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">-->
-      <!--</video>-->
+      <video autoplay muted loop style="width:100%;z-index: -999;position:absolute;" poster="/static/Cheer-Up/Snapshots/Cheer-Up.jpg">
+        <source src="/static/Cheer-Up/MP4/Cheer-Up.mp4">
+      </video>
       <div id="choice" style=";margin-left:auto;margin-right:auto;height: 40px;width:50%;padding-top: 230px;position: relative;">
         <el-radio-group v-model="radio" style="width:100%;margin-right: auto;margin-left: auto" @change="changeph">
           <el-radio :label="1"style="width:20% ;position:relative;float: left;margin-left: 20%;font-family: 'Lucida Grande';color: beige;">歌名 </el-radio>
@@ -14,13 +14,18 @@
         </el-radio-group>
       </div>
       <div id="search-holder" style=";margin-left:auto;margin-right:auto;height: 50px;width:60%;padding-top: 0px;margin-top: 80px">
-        <form @submit=enterkey(radio,inputkey)>
+        <form @submit.prevent=enterkey(radio,inputkey)>
         <el-input id="pht" size="large" :placeholder="phtext" v-model="inputkey" @keyup.enter='alert("s")' style="float: left;width: 60%;height:100px;margin-left: 15%;position: relative"></el-input>
         </form>
-
+          <div v-if="radio!=3">
         <router-link to="/result">
           <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click=handleClick(radio,inputkey)>搜索</el-button>
-        </router-link>
+        </router-link></div>
+        <div v-else>
+          <router-link to="/album">
+            <el-button type="primary" icon="search" style="width:10%;height: 42px;margin-left:1%;position:relative;float: left;font-size: 0.8em;text-align: center" @click=handleClick(radio,inputkey)>搜索</el-button>
+          </router-link></div>
+
       </div>
       <div id="warn" style="width:10%;margin-left: auto;margin-right: auto">
       <el-alert

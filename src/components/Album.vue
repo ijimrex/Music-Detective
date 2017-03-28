@@ -112,26 +112,26 @@
               </el-table-column>
             </el-table></el-tab-pane>
           </el-tab-pane>
-          <el-tab-pane label="iTunes">
-            <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
-              <el-table-column
-                prop="album"
-                label="封面">
-                <template scope="scope">
-                  <img :src=scope.row.album width="80px" height="80px" >
-                </template>
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                label="专辑"
-                width="400px">
-              </el-table-column>
-              <el-table-column
-                prop="artist"
-                label="歌手"
-                width="300px">
-              </el-table-column>
-            </el-table></el-tab-pane>
+          <!--<el-tab-pane label="iTunes">-->
+            <!--<el-table v-loading="loading" :data="tableData" stripe style="width: 100%">-->
+              <!--<el-table-column-->
+                <!--prop="album"-->
+                <!--label="封面">-->
+                <!--<template scope="scope">-->
+                  <!--<img :src=scope.row.album width="80px" height="80px" >-->
+                <!--</template>-->
+              <!--</el-table-column>-->
+              <!--<el-table-column-->
+                <!--prop="name"-->
+                <!--label="专辑"-->
+                <!--width="400px">-->
+              <!--</el-table-column>-->
+              <!--<el-table-column-->
+                <!--prop="artist"-->
+                <!--label="歌手"-->
+                <!--width="300px">-->
+              <!--</el-table-column>-->
+            <!--</el-table></el-tab-pane>-->
           </el-tab-pane>
 
         </el-tabs>

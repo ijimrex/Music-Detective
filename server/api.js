@@ -28,7 +28,7 @@ router.get('/search/album/:vendor', (req, res) => {
       page = req.query.page,
       raw = req.query.raw;
   let vendor = req.params.vendor;
-  console.log(key)
+  // console.log(key)
   MusicApi.searchAlbum(vendor, {
     key,
     limit,
@@ -113,7 +113,7 @@ router.get('/netTest', (req, res) => {
 router.get('/songList/:id',(req,res)=>{
   let id = req.query.id;
   toplist.getSongList(id).then(response => {
-    console.log(response);
+    // console.log(response);
   })
   // net2.playlists(id, response => {
   //   res.json(response);

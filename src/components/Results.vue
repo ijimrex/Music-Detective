@@ -114,24 +114,24 @@
             </el-table-column>
           </el-table></el-tab-pane>
         </el-tab-pane>
-        <el-tab-pane label="iTunes">
-          <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
-            <el-table-column
-              prop="name"
-              label="歌名"
-              width="300px">
-            </el-table-column>
-            <el-table-column
-              prop="artist"
-              label="歌手"
-              width="300px">
-            </el-table-column>
-            <el-table-column
-              prop="album"
-              label="专辑">
-            </el-table-column>
-          </el-table></el-tab-pane>
-        </el-tab-pane>
+        <!--<el-tab-pane label="iTunes">-->
+          <!--<el-table v-loading="loading" :data="tableData" stripe style="width: 100%">-->
+            <!--<el-table-column-->
+              <!--prop="name"-->
+              <!--label="歌名"-->
+              <!--width="300px">-->
+            <!--</el-table-column>-->
+            <!--<el-table-column-->
+              <!--prop="artist"-->
+              <!--label="歌手"-->
+              <!--width="300px">-->
+            <!--</el-table-column>-->
+            <!--<el-table-column-->
+              <!--prop="album"-->
+              <!--label="专辑">-->
+            <!--</el-table-column>-->
+          <!--</el-table></el-tab-pane>-->
+        <!--</el-tab-pane>-->
 
       </el-tabs>
      </div>
