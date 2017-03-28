@@ -6,7 +6,10 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 const state = {
   option:"",
-  keywords:""
+  keywords:"",
+  url:"",
+  info:""
+
 }
 const mutations = {
   UPDATE (state,op) {
@@ -16,11 +19,19 @@ const mutations = {
     console.log(state.keywords)
     // console.log(op.d)
 
+  },
+  Maintain(url,info){
+    state.url=url;
+    state.info=info
+
   }
 }
 const actions= {
   UPDATE (context) {
     context.commit('UPDATE')
+  },
+  Maintain(context){
+    context.commit('Maintain')
   }
 }
 export default new Vuex.Store({

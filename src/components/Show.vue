@@ -160,8 +160,13 @@
     methods:{
       enterkey(k,d){
         this.$store.commit('UPDATE',{k,d});
-        this.$router.push({path:'/result'})
-      },
+        if (k!=3){
+        this.$router.push({path:'/result'})}
+        else {
+          this.$router.push({path:'/album'})}
+
+        }
+      ,
       handleClick(k,d) {
         this.$store.commit('UPDATE',{k,d});
 //        alert(k+d)

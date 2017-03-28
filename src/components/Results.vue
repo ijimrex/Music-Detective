@@ -325,6 +325,7 @@
 
       ),
       methods:{
+
         handleClick(){
         switch(this.tagname){
 
@@ -405,7 +406,6 @@
                 a.album = list[i]["album"]["name"]
                 a.id=list[i]["id"]
                 a.picurl=list[i]["album"]["coverSmall"]
-                console.log(a.picurl)
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false

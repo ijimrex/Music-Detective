@@ -4,6 +4,9 @@ import Show from '@/components/Show'
 import Results from '@/components/Results'
 import Profile from '@/components/Profile'
 import Rank from '@/components/Rank'
+import Album from '@/components/Album'
+
+
 
 Vue.use(Router)
 const router = new Router({
@@ -24,7 +27,14 @@ const router = new Router({
     name: 'Profile',
     component: Profile
   },
-  {
+    {
+      path: '/album',
+      name: 'Album',
+      component: Album
+    },
+
+
+    {
     path: '/rank',
     name: 'Rank',
     component: Rank
