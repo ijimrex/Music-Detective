@@ -3,13 +3,13 @@
     <navigator2>
 
     </navigator2>
-    <div id="player-bottom" style="position:fixed;width: 26%;height:40px;z-index:9999;margin-left: 59%;padding-top: 10px;">
+    <div id="player-bottom" style="position:fixed;width: 26%;height:40px;z-index:9999;margin-left: 60%;padding-top: 10px;">
     <div id='player-show' style="position: relative;float: left; width:100%;">
-      <img id="alcv" :src=playercover style="width:60px;height:60px;float: left">
+      <img id="alcv" :src=playercover style="width:17%;height:100%;float: left">
       <div style="width: 60%;position: relative;float: left">
       <div style="width: 100%;font-family: 'Lucida Grande';color: #c6cfda;font-size: 0.8em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-left: 5%">正在播放：{{playinfo}}</div>
 
-      <audio id="player" loop controls autoplay style="float: left;margin-left: 10px;margin-top:10px">
+      <audio id="player" loop controls autoplay style="float: left;margin-left: 10px;margin-top:10px;width: 100%%">
         <source :src=listenurl type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
@@ -17,15 +17,18 @@
     </div></div>
 
 
-    <div style="width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 120px;font-family:gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
+    <div style="color: #4c4c4c; width: 80%;min-height:920px;position: relative;background-color:;margin-left: auto;margin-right: auto;padding-top: 120px;font-family: 'Lucida Grande', gothic, poppin,'PingFang SC',Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;;">
      <div v-if="type=='song'">
       <el-tabs type="border-card"  v-model="tagname" @tab-click="handleClick">
         <el-tab-pane label="QQ音乐" >
         <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
           <el-table-column
-            prop="name"
             label="歌名"
             width="300px">
+            <template scope="scope">
+              <a :href="scope.row.sitelink" target="_blank">{{scope.row.name}}</a>
+            </template>
+
           </el-table-column>
           <el-table-column
             prop="artist"
@@ -49,9 +52,12 @@
         <el-tab-pane label="虾米音乐">
           <el-table v-loading="loading" :data="tableData" stripe style="width: 100%">
             <el-table-column
-              prop="name"
               label="歌名"
               width="300px">
+              <template scope="scope">
+                <a :href="scope.row.sitelink" target="_blank">{{scope.row.name}}</a>
+              </template>
+
             </el-table-column>
             <el-table-column
               prop="artist"
@@ -350,7 +356,7 @@
             this.total=res.data["total"];
             var list=res.data[this.listType];
             this.tableData=[]
-            console.log(list)
+//            console.log(list)
             this.pasrseData(list)
 
           })
@@ -394,40 +400,29 @@
                 return true
             }
           this.tableData=[]
-//            alert(this.type)
             if (this.type=="song") {
 
               for (var i = 0; i < list.length; i++) {
                 if (list[i]["name"][0] == '&' && list[i]["name"][1] == '#' || list[i]["artists"][0]["name"][0] == '&' && list[i]["artists"][0]["name"][1] == '#' || list[i]["album"]["name"][0] == '&' && list[i]["album"]["name"][1] == '#')
                   continue
-                var a = {name: "", artist: "", album: "",id:"",picurl:""};
+                var a = {name: "", artist: "", album: "",id:"",picurl:"",sitelink:""};
                 a.name = list[i]["name"]
                 a.artist = list[i]["artists"][0]["name"]
                 a.album = list[i]["album"]["name"]
                 a.id=list[i]["id"]
                 a.picurl=list[i]["album"]["coverSmall"]
+                if(this.site=='qq'){
+                    a.sitelink='https://y.qq.com/n/yqq/song/'+a.id+'.html'
+                }else {
+                  a.sitelink='http://www.xiami.com/song/'+a.id
+
+                }
                 this.tableData.push(a);
                 this.ready = true
                 this.loading = false
               }
             }
-            else if (this.type=="album"){
 
-//              console.log(list)
-              for (var i = 0; i < list.length; i++) {
-                if (list[i]["name"][0] == '&' && list[i]["name"][1] == '#' || list[i]["artist"]["name"][0] == '&' && list[i]["artist"]["name"][1] == '#' )
-                  continue
-                var a = {name: "", artist: "", picurl: ""};
-                a.name = list[i]["name"]
-//                console.log(a.name)
-                a.artist = list[i]["artist"]["name"]
-                a.album = list[i]["coverSmall"]
-                this.tableData.push(a);
-                this.ready = true
-                this.loading = false
-              }
-
-            }
             return false
         },
         musicPlay(Murl,name,song,cover){
@@ -436,7 +431,7 @@
             this.listenurl=res.body['url']
             this.playinfo=name+"-"+song;
             this.playercover=cover;
-            console.log(cover)
+//            console.log(cover)
             document.getElementById("player").load();
           }).catch(e => {
             console.log("error in murl")
@@ -448,8 +443,14 @@
 
   }
 </script>
-<style>
-  #alcv:hover
+<style scoped>
+   a:link{text-decoration: none;color: #4c4c4c}
+   a:visited{text-decoration: none;}
+   a:hover{text-decoration: underline;}
+   a:active{text-decoration: none;}
+
+
+#alcv:hover
   {
     -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
     -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);

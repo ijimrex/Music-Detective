@@ -12,7 +12,7 @@
       </div>
       <div id="search-holder" style=";auto;height: 50px;width:12%;padding-top: 33px;position: relative;float: right">
         <form @submit.prevent="enterkey(newinputkey)">
-        <el-input    icon="search" id="pht" size="small" :placeholder="phtext" v-model="newinputkey" style="float: left;width: 60%;height:30px;margin-left: 15%;position: relative;float: left"></el-input>
+        <el-input    icon="search" id="pht" size="small" :placeholder="phtext" v-model="newinputkey" style="float: left;width: 80%;height:30px;margin-left: 1%;position: relative;float: left"></el-input>
           </form>
         <!--{{newinputkey}}-->
       </div>
